@@ -1,0 +1,136 @@
+"use client";
+
+import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { useCases } from "@/lib/flexibench-content";
+import { FileText, Image as ImageIcon, Video, Music, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+
+const modalityIcons: Record<string, typeof FileText> = {
+  Text: FileText,
+  Image: ImageIcon,
+  Video: Video,
+  Audio: Music,
+};
+
+export function UseCasesPreviewSection() {
+  // Get 3 featured use cases (first from different industries)
+  const featuredUseCases = [
+    useCases[0], // Healthcare - Text
+    useCases[3], // Automotive - Video
+    useCases[7], // Retail - Image
+  ];
+
+  const industryColors: Record<string, string> = {
+    "Healthcare & Life Sciences": "from-blue-500/10 to-blue-500/5",
+    "Automotive & Mobility": "from-orange-500/10 to-orange-500/5",
+    "Retail & E-commerce": "from-purple-500/10 to-purple-500/5",
+  };
+
+  return (
+    <section className="relative bg-background section-padding-y border-b overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/10 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+      <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6">
+          <Tagline>Use Cases</Tagline>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            Annotation Use Cases Across{" "}
+            <span className="text-primary">Industries</span>
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Explore real-world annotation workflows that solve enterprise challenges across industries and modalities.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {featuredUseCases.map((useCase, index) => {
+            const IconComponent = modalityIcons[useCase.modality] || FileText;
+            const colorClass = industryColors[useCase.industry] || "from-primary/10 to-primary/5";
+            return (
+              <Card
+                key={useCase.id}
+                className={`group relative bg-gradient-to-br from-background to-secondary/30 gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30`}
+              >
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${colorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                
+                {/* Image Section */}
+                <div className="relative mb-6 h-40 rounded-xl border border-border/30 overflow-hidden group/image">
+                  <Image
+                    src={
+                      useCase.industry.includes("Healthcare") 
+                        ? "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop&q=80"
+                        : useCase.industry.includes("Automotive")
+                        ? "https://images.unsplash.com/photo-1580274455191-1c62238fa320?w=800&h=400&fit=crop&q=80"
+                        : "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=400&fit=crop&q=80"
+                    }
+                    alt={`${useCase.industry} use case: ${useCase.title} showing ${useCase.modality.toLowerCase()} annotation workflow`}
+                    fill
+                    className="object-cover group-hover/image:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-transparent" />
+                  <div className="absolute top-3 left-3">
+                    <div className="bg-background/90 backdrop-blur-sm rounded-lg p-2 border border-border/30 shadow-lg">
+                      <IconComponent className="h-6 w-6 text-primary" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="flex items-center justify-center gap-2">
+                      <span className="text-xs font-semibold text-foreground bg-primary/90 backdrop-blur-sm px-2 py-1 rounded">
+                        {useCase.industry.split(" ")[0]}
+                      </span>
+                      <span className="text-xs text-foreground/80">•</span>
+                      <span className="text-xs font-medium text-foreground bg-background/90 backdrop-blur-sm px-2 py-1 rounded">
+                        {useCase.modality}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <CardContent className="relative flex flex-col gap-4 p-0">
+                  <div>
+                    <h3 className="text-foreground text-xl font-bold mb-3 leading-tight group-hover:text-primary transition-colors">
+                      {useCase.title}
+                    </h3>
+                    <div className="space-y-2">
+                      <div>
+                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">Problem</p>
+                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                          {useCase.problem}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 mt-auto border-t border-border/30">
+                    <Link
+                      href="/use-cases"
+                      className="text-primary text-sm font-semibold hover:underline inline-flex items-center gap-2 group-hover:gap-3 transition-all"
+                    >
+                      View Case Study
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        <div className="flex justify-center pt-4">
+          <Link href="/use-cases">
+            <Button variant="outline" size="lg" className="gap-2">
+              Explore All {useCases.length} Use Cases
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

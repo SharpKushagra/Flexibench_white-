@@ -1,0 +1,273 @@
+import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
+import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1";
+import { PlatformOverviewSection } from "@/components/pro-blocks/landing-page/platform-overview-section";
+import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { Card, CardContent } from "@/components/ui/card";
+import { platformModules } from "@/lib/flexibench-content";
+import { Network, Sparkles, Shield, Plug } from "lucide-react";
+import Image from "next/image";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+
+const iconMap: Record<string, typeof Network> = {
+  Network,
+  Sparkles,
+  Shield,
+  Plug,
+};
+
+export default function PlatformPage() {
+  return (
+    <main>
+      <LpNavbar1 />
+      {/* Enhanced Hero Section with Image */}
+      <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 section-padding-y border-b overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
+          backgroundSize: '48px 48px'
+        }} />
+        {/* Animated Gradients */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        
+        <div className="container-padding-x container mx-auto relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            {/* Left Column - Text */}
+            <div className="flex-1 flex flex-col gap-8 text-white">
+              <div className="section-title-gap-lg flex flex-col">
+                <Tagline variant="white" className="mb-4">Platform</Tagline>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                  The Enterprise Annotation Control Plane for{" "}
+                  <span className="relative inline-block">
+                    Model-Ready Data
+                    <svg className="absolute -bottom-2 left-0 w-full h-3 text-primary/40" viewBox="0 0 300 12" fill="none">
+                      <path d="M2 8 Q75 4, 150 8 T298 8" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </span>
+                </h1>
+                <p className="text-white/90 text-lg lg:text-xl leading-relaxed max-w-2xl">
+                  Flexibench is a unified annotation platform engineered to convert raw data into structured,
+                  consistent, and model-aligned datasets. It orchestrates annotation workflows, quality
+                  engineering, and tooling across text, image, video, and audio.
+                </p>
+              </div>
+            </div>
+            
+            {/* Right Column - Image */}
+            <div className="flex-1 w-full">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group">
+                <AspectRatio ratio={16 / 10}>
+                  <Image
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=900&fit=crop&q=80"
+                    alt="Enterprise annotation platform dashboard showing workflow orchestration, quality metrics, and data pipelines"
+                    fill
+                    priority
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20 to-transparent" />
+                </AspectRatio>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <PlatformOverviewSection />
+
+      {/* Platform Value Summary Section - Completely Different Design */}
+      <section className="relative bg-gradient-to-b from-secondary/40 via-background to-secondary/30 section-padding-y border-b overflow-hidden">
+        {/* Unique Background - Organic Pattern */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{
+          backgroundImage: `radial-gradient(circle at 20% 50%, currentColor 2px, transparent 0), radial-gradient(circle at 80% 80%, currentColor 2px, transparent 0), radial-gradient(circle at 40% 20%, currentColor 1.5px, transparent 0)`,
+          backgroundSize: '120px 120px, 100px 100px, 140px 140px'
+        }} />
+        {/* Softer gradient orbs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-green-500/8 rounded-full blur-3xl" />
+        
+        <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-16 md:gap-20">
+          {/* Header Section - Left Aligned */}
+          <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+            <div className="flex-1 max-w-xl">
+              <Tagline className="mb-6">Platform Value</Tagline>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
+                At its core, Flexibench is not just a{" "}
+                <span className="relative inline-block text-primary">
+                  labeling tool
+                  <svg className="absolute -bottom-3 left-0 w-full h-4 text-primary/30" viewBox="0 0 400 16" fill="none">
+                    <path d="M2 12 Q100 4, 200 12 T398 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </h2>
+              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
+                It is an annotation control plane that enables organizations to produce higher fidelity
+                datasets, more consistent models, and faster iteration cycles.
+              </p>
+            </div>
+            {/* Visual Element on Right */}
+            <div className="flex-1 max-w-md lg:max-w-lg">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl bg-gradient-to-br from-primary/5 to-transparent p-8">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10" />
+                <div className="relative z-10">
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    {[Network, Sparkles, Shield, Plug].map((Icon, idx) => (
+                      <div key={idx} className="bg-background/80 backdrop-blur-sm rounded-xl p-4 border border-border/50 flex items-center justify-center">
+                        <Icon className="h-8 w-8 text-primary" />
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-sm font-semibold text-foreground/80 text-center">
+                    Four Pillars of Platform Value
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Platform Value Cards - Vertical Stacked Design with Alternating Sides */}
+          <div className="flex flex-col gap-8">
+            {[
+              {
+                icon: Network,
+                title: "Enforces Structural Consistency",
+                description: "Through advanced ontology management",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
+                color: "from-blue-500/10 to-blue-500/5",
+              },
+              {
+                icon: Sparkles,
+                title: "Improves Speed",
+                description: "Reduces human drudgery with AI-assisted labeling",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80",
+                color: "from-purple-500/10 to-purple-500/5",
+              },
+              {
+                icon: Shield,
+                title: "Embeds Quality Engineering",
+                description: "Into every annotation task",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&q=80",
+                color: "from-green-500/10 to-green-500/5",
+              },
+              {
+                icon: Plug,
+                title: "Integrates Tightly",
+                description: "With engineering and model training workflows via APIs",
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop&q=80",
+                color: "from-orange-500/10 to-orange-500/5",
+              },
+            ].map((value, index) => {
+              const IconComponent = value.icon;
+              const isEven = index % 2 === 0;
+              
+              return (
+                <div
+                  key={index}
+                  className={`group flex flex-col lg:flex-row gap-8 lg:gap-12 items-center ${
+                    !isEven ? 'lg:flex-row-reverse' : ''
+                  }`}
+                >
+                  {/* Left Side - Content (Alternates) */}
+                  <div className="flex-1 flex flex-col gap-6">
+                    <div className="flex items-center gap-4">
+                      <div className={`bg-gradient-to-br ${value.color} flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/20 shadow-xl group-hover:scale-110 group-hover:border-primary/40 transition-all duration-300`}>
+                        <IconComponent className="text-primary h-10 w-10" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-5xl font-black text-primary/20 leading-none">{String(index + 1).padStart(2, '0')}</span>
+                          <div className="h-px flex-1 bg-gradient-to-r from-primary/20 to-transparent" />
+                        </div>
+                        <h3 className="text-3xl md:text-4xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                          {value.title}
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground text-lg leading-relaxed pl-24 max-w-2xl">
+                      {value.description}
+                    </p>
+                    <div className="pl-24 pt-4">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 group-hover:bg-primary/20 transition-colors">
+                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                        <span className="text-sm font-semibold text-foreground">Core Platform Benefit</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Right Side - Image (Alternates) */}
+                  <div className="flex-1 max-w-lg">
+                    <div className="relative rounded-2xl overflow-hidden border-2 border-border/50 shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]">
+                      <div className="aspect-[4/3] relative">
+                        <Image
+                          src={value.image}
+                          alt={value.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Final Summary Statement - Enhanced Design */}
+          <div className="mt-12 max-w-5xl mx-auto">
+            <div className="relative bg-gradient-to-br from-primary/10 via-background to-secondary/40 rounded-3xl border-2 border-primary/30 p-10 md:p-12 shadow-2xl overflow-hidden">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl -ml-24 -mb-24" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center gap-3 mb-8">
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                  <div className="bg-primary/20 rounded-full p-2 border border-primary/30">
+                    <Sparkles className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                </div>
+                
+                <p className="text-foreground text-xl md:text-2xl leading-relaxed text-center font-medium mb-6">
+                  This combination enables organizations to produce{" "}
+                  <span className="relative inline-block font-bold text-primary">
+                    higher fidelity datasets
+                    <svg className="absolute -bottom-1 left-0 w-full h-2 text-primary/20" viewBox="0 0 200 8" fill="none">
+                      <path d="M0 4 Q50 0, 100 4 T200 4" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </span>
+                  ,{" "}
+                  <span className="relative inline-block font-bold text-primary">
+                    more consistent models
+                    <svg className="absolute -bottom-1 left-0 w-full h-2 text-primary/20" viewBox="0 0 200 8" fill="none">
+                      <path d="M0 4 Q50 0, 100 4 T200 4" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </span>
+                  , and{" "}
+                  <span className="relative inline-block font-bold text-primary">
+                    faster iteration cycles
+                    <svg className="absolute -bottom-1 left-0 w-full h-2 text-primary/20" viewBox="0 0 200 8" fill="none">
+                      <path d="M0 4 Q50 0, 100 4 T200 4" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </span>
+                  {" "}ensuring annotation is a force multiplier, not a bottleneck.
+                </p>
+                
+                <div className="flex items-center justify-center gap-3 mt-8">
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider">
+                    Platform Value Proposition
+                  </div>
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer1 />
+    </main>
+  );
+}

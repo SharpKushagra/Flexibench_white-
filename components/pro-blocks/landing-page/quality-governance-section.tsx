@@ -1,0 +1,100 @@
+"use client";
+
+import { Target, Users, Layers, BarChart3, FileCheck } from "lucide-react";
+import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { qualityPrinciples } from "@/lib/flexibench-content";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+
+const iconMap: Record<string, typeof Target> = {
+  Target,
+  Users,
+  Layers,
+  BarChart3,
+  FileCheck,
+};
+
+export function QualityGovernanceSection() {
+  return (
+    <section
+      className="relative bg-gradient-to-br from-background via-secondary/30 to-secondary/50 section-padding-y border-b overflow-hidden"
+      id="quality-governance"
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(90deg, transparent 40%, currentColor 50%, transparent 60%)`,
+          backgroundSize: '80px 80px'
+        }} />
+      </div>
+
+      <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6">
+          <Tagline>Quality & Governance</Tagline>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            Annotation with{" "}
+            <span className="text-primary">Accountability</span>
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Built for Trust, Consistency, and Deployable AI. High-quality labels are non-negotiable for reliable models. 
+            Flexibench embeds robust quality engineering and governance into every annotation workflow.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
+          {qualityPrinciples.map((principle, index) => {
+            const IconComponent = iconMap[principle.icon] || Target;
+            // Last item spans 2 columns on large screens
+            const colSpan = index === 4 ? "lg:col-span-2" : "";
+            return (
+              <Card
+                key={principle.title}
+                className={`group relative bg-gradient-to-br from-background to-secondary/30 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 ${colSpan}`}
+              >
+                <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-xl -mr-10 -mt-10" />
+                <CardContent className="relative flex flex-col gap-6 p-0">
+                  <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-primary/20 shadow-md group-hover:scale-110 transition-transform">
+                    <IconComponent className="text-primary h-8 w-8" />
+                  </div>
+                  
+                  {/* Visual Element with Image */}
+                  <div className="h-24 rounded-lg border border-border/30 overflow-hidden relative group/image">
+                    <Image
+                      src={
+                        principle.title.includes("Benchmark")
+                          ? "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop&q=80"
+                          : principle.title.includes("Consensus")
+                          ? "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=300&fit=crop&q=80"
+                          : principle.title.includes("Review")
+                          ? "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop&q=80"
+                          : principle.title.includes("Monitoring")
+                          ? "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop&q=80"
+                          : "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=300&fit=crop&q=80"
+                      }
+                      alt={`${principle.title} - Quality and governance visualization`}
+                      fill
+                      className="object-cover group-hover/image:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="bg-background/80 backdrop-blur-sm rounded-lg p-2 border border-border/20">
+                        <IconComponent className="h-8 w-8 text-primary" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <h3 className="text-foreground text-xl font-bold leading-tight">
+                    {principle.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                    {principle.description}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

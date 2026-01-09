@@ -226,3 +226,46 @@
     font-weight: 600;
   }
 }
+
+@keyframes stairFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(-8px) translateX(2px);
+    opacity: 1;
+  }
+}
+
+@keyframes pathDraw {
+  0% {
+    stroke-dasharray: 0 1000;
+  }
+  100% {
+    stroke-dasharray: 1000 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-stair-float {
+  animation: stairFloat 2s ease-in-out infinite;
+}
+
+.animate-path-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: pathDraw 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}

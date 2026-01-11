@@ -7,6 +7,7 @@ interface TestimonialsSection1Props {
   authorName?: string;
   authorRole?: string;
   avatarSrc?: string;
+  variant?: "rose" | "amber";
 }
 
 export default function TestimonialsSection1({
@@ -14,17 +15,28 @@ export default function TestimonialsSection1({
   authorName = "Head of ML",
   authorRole = "Global Fintech",
   avatarSrc = "/placeholder-user.jpg",
+  variant = "rose",
 }: TestimonialsSection1Props) {
+  const gradientClass = variant === "rose" 
+    ? "from-rose-50 via-pink-50 to-fuchsia-50 dark:from-rose-950 dark:via-pink-950 dark:to-fuchsia-950"
+    : "from-amber-50 via-orange-50 to-yellow-50 dark:from-amber-950 dark:via-orange-950 dark:to-yellow-950";
+  
+  const orbColor = variant === "rose"
+    ? "bg-rose-400/20"
+    : "bg-amber-400/20";
+
   return (
     <section
-      className="relative container-padding-x section-padding-y flex flex-col items-center border-b overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/30"
+      className={`relative container-padding-x section-padding-y flex flex-col items-center border-b overflow-hidden bg-gradient-to-br ${gradientClass}`}
       aria-labelledby="testimonial-title"
     >
-      {/* Decorative Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+      {/* Enhanced Decorative Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 ${orbColor} rounded-full blur-3xl animate-pulse`} />
+        <div className={`absolute top-0 right-0 w-64 h-64 ${orbColor} rounded-full blur-2xl animate-pulse`} style={{ animationDelay: '1s', animationDuration: '4s' }} />
+        <div className={`absolute bottom-0 left-0 w-64 h-64 ${orbColor} rounded-full blur-2xl animate-pulse`} style={{ animationDelay: '2s', animationDuration: '5s' }} />
       </div>
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
           backgroundSize: '40px 40px'

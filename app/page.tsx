@@ -38,6 +38,7 @@ export default function Page() {
         authorName={testimonials[1].authorName}
         authorRole={testimonials[1].authorRole}
         avatarSrc={testimonials[1].avatarSrc}
+        variant="amber"
       />
       <GetStartedCtaSection />
       <FaqSection2 />

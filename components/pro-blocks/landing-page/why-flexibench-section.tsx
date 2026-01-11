@@ -16,18 +16,22 @@ const iconMap: Record<string, typeof Database> = {
 
 export function WhyFlexibenchSection() {
   return (
-    <section className="relative bg-background section-padding-y border-b overflow-hidden" id="why-flexibench">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
+    <section className="relative bg-gradient-to-br from-teal-50 via-emerald-50 to-cyan-50 dark:from-teal-950 dark:via-emerald-950 dark:to-cyan-950 section-padding-y border-b overflow-hidden" id="why-flexibench">
+      {/* Enhanced Background Pattern */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-400/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '4s' }} />
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
+        {/* Animated Waves */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-teal-500/5 to-transparent" />
       </div>
 
       <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
         {/* Section Title with Enhanced Design */}
-        <div className="mx-auto flex max-w-4xl flex-col items-center text-center gap-6">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center gap-6 opacity-0 animate-fade-in-up">
           <Tagline>Why Flexibench</Tagline>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
             High-Quality Data Is the{" "}
@@ -48,7 +52,7 @@ export function WhyFlexibenchSection() {
         {/* Enhanced Bento Grid - 2-1-2 Layout with Images */}
         <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-5 lg:grid-rows-3">
           {/* Row 1: Two cards spanning 2 columns each with image placeholders */}
-          <Card className="group relative bg-gradient-to-br from-secondary/80 via-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 lg:col-span-2 lg:row-span-2 hover:scale-[1.02]">
+          <Card className="group relative bg-gradient-to-br from-secondary/80 via-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 lg:col-span-2 lg:row-span-2 hover:scale-[1.02] opacity-0 animate-fade-in-left" style={{ animationDelay: '100ms' }}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors" />
             <CardContent className="relative flex flex-col gap-6 p-0 h-full">
               <div className="flex items-start gap-4">
@@ -80,7 +84,7 @@ export function WhyFlexibenchSection() {
             </CardContent>
           </Card>
 
-          <Card className="group relative bg-gradient-to-br from-background via-secondary/40 to-secondary/80 gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 lg:col-span-2 lg:row-span-2 hover:scale-[1.02]">
+          <Card className="group relative bg-gradient-to-br from-background via-secondary/40 to-secondary/80 gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 lg:col-span-2 lg:row-span-2 hover:scale-[1.02] opacity-0 animate-fade-in-right" style={{ animationDelay: '200ms' }}>
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -ml-16 -mb-16 group-hover:bg-primary/10 transition-colors" />
             <CardContent className="relative flex flex-col gap-6 p-0 h-full">
               <div className="flex items-start gap-4">
@@ -113,7 +117,7 @@ export function WhyFlexibenchSection() {
           </Card>
 
           {/* Center card spanning 1 column, 3 rows - Featured */}
-          <Card className="group relative bg-gradient-to-b from-primary/10 via-primary/5 to-secondary/30 gap-0 overflow-hidden rounded-2xl border-2 border-primary/20 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 lg:col-span-1 lg:row-span-3 hover:border-primary/40">
+          <Card className="group relative bg-gradient-to-b from-primary/10 via-primary/5 to-secondary/30 gap-0 overflow-hidden rounded-2xl border-2 border-primary/20 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 lg:col-span-1 lg:row-span-3 hover:border-primary/40 opacity-0 animate-scale-in" style={{ animationDelay: '300ms' }}>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <CardContent className="relative flex flex-col gap-6 p-0 h-full justify-center items-center text-center">
               <div className="bg-gradient-to-br from-primary/30 to-primary/10 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-lg mb-4">
@@ -135,7 +139,7 @@ export function WhyFlexibenchSection() {
           </Card>
 
           {/* Row 3: Two cards spanning 2 columns each */}
-          <Card className="group relative bg-gradient-to-br from-secondary/60 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 lg:col-span-2 hover:scale-[1.01]">
+          <Card className="group relative bg-gradient-to-br from-secondary/60 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 lg:col-span-2 hover:scale-[1.01] opacity-0 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
             <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl -mr-12 -mt-12" />
             <CardContent className="relative flex flex-row gap-6 p-0">
               <div className="flex-shrink-0">
@@ -160,7 +164,7 @@ export function WhyFlexibenchSection() {
             </CardContent>
           </Card>
 
-          <Card className="group relative bg-gradient-to-br from-background to-secondary/60 gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 lg:col-span-2 hover:scale-[1.01]">
+          <Card className="group relative bg-gradient-to-br from-background to-secondary/60 gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 lg:col-span-2 hover:scale-[1.01] opacity-0 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/5 rounded-full blur-xl -ml-12 -mb-12" />
             <CardContent className="relative flex flex-row gap-6 p-0">
               <div className="flex-shrink-0">

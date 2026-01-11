@@ -15,15 +15,22 @@ const iconMap: Record<string, typeof Workflow> = {
 
 export function InternalToolsSection() {
   return (
-    <section className="relative bg-background section-padding-y border-b overflow-hidden">
-      {/* Decorative Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5" />
-      <div className="absolute top-1/2 left-0 w-px h-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
-      <div className="absolute top-1/2 right-0 w-px h-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
+    <section className="relative bg-gradient-to-br from-red-50 via-rose-50 to-pink-50 dark:from-red-950 dark:via-rose-950 dark:to-pink-950 section-padding-y border-b overflow-hidden">
+      {/* Enhanced Decorative Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-red-400/15 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-rose-400/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }} />
+        <div className="absolute inset-0 bg-gradient-to-tr from-red-500/5 via-transparent to-rose-500/5" />
+        {/* Subtle Pattern */}
+        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
 
       <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
         {/* Section Title */}
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6 opacity-0 animate-fade-in-up">
           <Tagline>Ecosystem</Tagline>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
             Extend Annotation from{" "}
@@ -39,7 +46,7 @@ export function InternalToolsSection() {
         {/* Enhanced 1-2 Grid Layout */}
         <div className="grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-3">
           {/* Wide Card - DataBench with Visual */}
-          <Card className="group relative bg-gradient-to-br from-secondary/80 via-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-10 shadow-xl hover:shadow-2xl transition-all duration-300 lg:col-span-2 hover:scale-[1.01] hover:border-primary/30">
+          <Card className="group relative bg-gradient-to-br from-secondary/80 via-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-10 shadow-xl hover:shadow-2xl transition-all duration-300 lg:col-span-2 hover:scale-[1.01] hover:border-primary/30 opacity-0 animate-fade-in-left" style={{ animationDelay: '100ms' }}>
             {/* Decorative Background */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-primary/10 transition-colors" />
             
@@ -153,7 +160,7 @@ export function InternalToolsSection() {
               </CardContent>
             </Card>
 
-            <Card className="group relative bg-gradient-to-br from-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex-1 hover:scale-[1.02] hover:-translate-y-1">
+            <Card className="group relative bg-gradient-to-br from-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex-1 hover:scale-[1.02] hover:-translate-y-1 opacity-0 animate-fade-in-right" style={{ animationDelay: '300ms' }}>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -ml-16 -mb-16" />
               <CardContent className="relative flex flex-col gap-6 p-0">
                 <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-primary/20 shadow-md">

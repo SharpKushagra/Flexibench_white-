@@ -24,12 +24,17 @@ export function CapabilitiesOverviewSection() {
 
   return (
     <section
-      className="relative bg-gradient-to-b from-background via-secondary/20 to-background section-padding-y border-b overflow-hidden"
+      className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-amber-950 dark:via-orange-950 dark:to-yellow-950 section-padding-y border-b overflow-hidden"
       id="capabilities"
     >
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
+      {/* Enhanced Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-400/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-yellow-400/10 rounded-full blur-3xl" />
+        {/* Mesh Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/5 via-transparent to-amber-500/5" />
+      </div>
 
       <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6">
@@ -47,10 +52,13 @@ export function CapabilitiesOverviewSection() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {capabilities.map((capability, index) => {
             const IconComponent = iconMap[capability.icon] || FileText;
+            const animationDelay = index * 100;
+            const isEven = index % 2 === 0;
             return (
               <Card
                 key={capability.type}
-                className="group relative bg-gradient-to-br from-background to-secondary/40 border-2 border-border/50 overflow-hidden rounded-2xl p-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:border-primary/30"
+                className={`group relative bg-gradient-to-br from-background to-secondary/40 border-2 border-border/50 overflow-hidden rounded-2xl p-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 ${isEven ? 'animate-fade-in-left' : 'animate-fade-in-right'}`}
+                style={{ animationDelay: `${animationDelay}ms` }}
               >
                 {/* Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${capabilityColors[index]} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />

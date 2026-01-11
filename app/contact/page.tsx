@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Mail, Calendar } from "lucide-react";
+import { ArrowRight, Mail, Calendar, Sparkles, CheckCircle, Zap } from "lucide-react";
 import Link from "next/link";
 import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
@@ -23,61 +23,117 @@ function ContactFormContent({
   setFormType: (type: "sales" | "demo") => void;
 }) {
   return (
-    <section className="relative bg-gradient-to-b from-background via-secondary/20 to-background section-padding-y border-b overflow-hidden">
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-        backgroundSize: '32px 32px'
+    <section className="relative bg-gradient-to-b from-background via-secondary/30 to-background section-padding-y border-b overflow-hidden">
+      {/* Enhanced Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+        backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px),
+                          linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
+        backgroundSize: '48px 48px'
       }} />
+      
+      {/* Animated Gradient Orbs */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       
       <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 lg:flex-row lg:gap-16">
         {/* Contact Form */}
-        <div className="flex-1">
-          <div className="flex gap-4 mb-6">
+        <div className="flex-1 animate-fade-in-up">
+          <div className="flex gap-4 mb-8">
             <Button
               variant={formType === "sales" ? "default" : "outline"}
               onClick={() => setFormType("sales")}
-              className="flex-1 transition-all duration-300"
+              className={`flex-1 h-14 text-base font-semibold transition-all duration-300 ${
+                formType === "sales"
+                  ? "bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg shadow-primary/25"
+                  : "hover:border-primary/50 hover:bg-primary/5"
+              }`}
             >
+              <Zap className="mr-2 h-5 w-5" />
               Talk to Sales
             </Button>
             <Button
               variant={formType === "demo" ? "default" : "outline"}
               onClick={() => setFormType("demo")}
-              className="flex-1 transition-all duration-300"
+              className={`flex-1 h-14 text-base font-semibold transition-all duration-300 ${
+                formType === "demo"
+                  ? "bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg shadow-primary/25"
+                  : "hover:border-primary/50 hover:bg-primary/5"
+              }`}
             >
+              <Calendar className="mr-2 h-5 w-5" />
               Request Demo
             </Button>
           </div>
 
-          <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-primary/30">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <CardContent className="relative flex flex-col gap-6 p-0">
-              <div>
-                <h2 className="text-foreground text-2xl font-bold mb-2">
-                  {formType === "sales" ? "Talk to Sales" : "Request a Demo"}
-                </h2>
-                <p className="text-muted-foreground text-base leading-relaxed">
-                  {formType === "sales"
-                    ? "Get a tailored demo and learn how Flexibench can fit your annotation needs."
-                    : "Choose a time and let us walk you through the platform."}
-                </p>
+          <Card className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-primary/40 hover:scale-[1.01]">
+            {/* Animated Background Glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+            <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl -mr-20 -mt-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -ml-16 -mb-16 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ animationDelay: '0.2s' }} />
+            
+            <CardContent className="relative flex flex-col gap-8 p-0">
+              <div className="flex items-start gap-4">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  {formType === "sales" ? (
+                    <Zap className="text-primary h-8 w-8" />
+                  ) : (
+                    <Calendar className="text-primary h-8 w-8" />
+                  )}
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-foreground text-3xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    {formType === "sales" ? "Talk to Sales" : "Request a Demo"}
+                  </h2>
+                  <p className="text-muted-foreground text-base leading-relaxed">
+                    {formType === "sales"
+                      ? "Get a tailored demo and learn how Flexibench can fit your annotation needs."
+                      : "Choose a time and let us walk you through the platform."}
+                  </p>
+                </div>
               </div>
 
-              <form className="flex flex-col gap-5">
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="name" className="text-sm font-semibold">Full Name</Label>
-                  <Input id="name" placeholder="John Doe" required className="h-12" />
+              <form className="flex flex-col gap-6">
+                <div className="flex flex-col gap-2 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                  <Label htmlFor="name" className="text-sm font-bold flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Full Name
+                  </Label>
+                  <Input 
+                    id="name" 
+                    placeholder="John Doe" 
+                    required 
+                    className="h-14 text-base border-2 focus:border-primary/50 transition-colors" 
+                  />
                 </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="email" className="text-sm font-semibold">Email</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" required className="h-12" />
+                <div className="flex flex-col gap-2 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                  <Label htmlFor="email" className="text-sm font-bold flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Email
+                  </Label>
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="john@example.com" 
+                    required 
+                    className="h-14 text-base border-2 focus:border-primary/50 transition-colors" 
+                  />
                 </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="company" className="text-sm font-semibold">Company</Label>
-                  <Input id="company" placeholder="Company Name" className="h-12" />
+                <div className="flex flex-col gap-2 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                  <Label htmlFor="company" className="text-sm font-bold flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Company
+                  </Label>
+                  <Input 
+                    id="company" 
+                    placeholder="Company Name" 
+                    className="h-14 text-base border-2 focus:border-primary/50 transition-colors" 
+                  />
                 </div>
-                <div className="flex flex-col gap-2">
-                  <Label htmlFor="message" className="text-sm font-semibold">Message</Label>
+                <div className="flex flex-col gap-2 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  <Label htmlFor="message" className="text-sm font-bold flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Message
+                  </Label>
                   <Textarea
                     id="message"
                     placeholder={
@@ -87,12 +143,17 @@ function ContactFormContent({
                     }
                     rows={5}
                     required
-                    className="resize-none"
+                    className="resize-none text-base border-2 focus:border-primary/50 transition-colors"
                   />
                 </div>
-                <Button type="submit" size="lg" className="text-base h-12">
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="h-14 text-base font-semibold bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5 mt-2 animate-fade-in-up"
+                  style={{ animationDelay: '0.5s' }}
+                >
                   {formType === "sales" ? "Contact Sales" : "Schedule Demo"}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </form>
             </CardContent>
@@ -101,39 +162,61 @@ function ContactFormContent({
 
         {/* Contact Options */}
         <div className="flex flex-col gap-6 lg:w-96">
-          <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-primary/30 hover:scale-105">
-            <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <Card 
+            className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-primary/40 hover:scale-105 hover:-translate-y-2 animate-fade-in-up"
+            style={{ animationDelay: '0.2s' }}
+          >
+            {/* Animated Background Glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-blue-500/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            
             <CardContent className="relative flex flex-col gap-6 p-0">
               <div className="flex items-center gap-4">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-primary/20 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="text-primary h-7 w-7" />
+                <div className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-blue-500/30 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <Mail className="text-blue-500 h-8 w-8" />
                 </div>
                 <div>
-                  <h3 className="text-foreground font-bold text-lg">Email Us</h3>
+                  <h3 className="text-foreground font-bold text-xl mb-1 group-hover:text-blue-500 transition-colors">Email Us</h3>
                   <p className="text-muted-foreground text-sm">sales@flexibench.com</p>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-border/30">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <CheckCircle className="h-4 w-4 text-blue-500" />
+                  <span>Response within 24 hours</span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-primary/30 hover:scale-105">
-            <div className="absolute top-0 left-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -ml-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <Card 
+            className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-primary/40 hover:scale-105 hover:-translate-y-2 animate-fade-in-up"
+            style={{ animationDelay: '0.4s' }}
+          >
+            {/* Animated Background Glow */}
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-emerald-500/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+            <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl -ml-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            
             <CardContent className="relative flex flex-col gap-6 p-0">
               <div className="flex items-center gap-4 mb-4">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-primary/20 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Calendar className="text-primary h-7 w-7" />
+                <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-emerald-500/30 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <Calendar className="text-emerald-500 h-8 w-8" />
                 </div>
                 <div>
-                  <h3 className="text-foreground font-bold text-lg">Schedule a Call</h3>
+                  <h3 className="text-foreground font-bold text-xl mb-1 group-hover:text-emerald-500 transition-colors">Schedule a Call</h3>
                   <p className="text-muted-foreground text-sm">
                     Book a time that works for you
                   </p>
                 </div>
               </div>
-              <Button asChild variant="outline" className="w-full h-12 group-hover:border-primary group-hover:text-primary transition-colors">
+              <Button 
+                asChild 
+                variant="outline" 
+                className="w-full h-14 text-base font-semibold group-hover:border-emerald-500 group-hover:text-emerald-500 group-hover:bg-emerald-500/5 transition-all duration-300"
+              >
                 <Link href="#">
                   View Calendar
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
             </CardContent>
@@ -152,39 +235,69 @@ function ContactPageContent() {
   return (
     <>
       <LpNavbar1 />
-      {/* Enhanced Hero Section */}
+      
+      {/* Enhanced Hero Section with Animations */}
       <section className="relative bg-gradient-to-br from-green-950 via-emerald-900 to-teal-900 section-padding-y border-b overflow-hidden">
+        {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '48px 48px'
         }} />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-green-500/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-500/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-green-500/10 via-transparent to-teal-500/10 rounded-full blur-3xl" />
+        
+        {/* Animated Lines */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-400/30 to-transparent animate-pulse" />
+          <div className="absolute top-2/4 right-0 w-px h-full bg-gradient-to-b from-transparent via-teal-400/30 to-transparent animate-pulse" style={{ animationDelay: '0.5s' }} />
+        </div>
         
         <div className="container-padding-x container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <div className="flex-1 flex flex-col gap-8 text-white">
+            <div className="flex-1 flex flex-col gap-8 text-white animate-fade-in-up">
               <div className="section-title-gap-lg flex flex-col">
-                <Tagline variant="white" className="mb-4">Contact</Tagline>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                <Tagline variant="white" className="mb-4">Get Started</Tagline>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-white">
                   Start Building{" "}
                   <span className="relative inline-block">
                     Model-Ready Data
-                    <svg className="absolute -bottom-2 left-0 w-full h-3 text-primary/40" viewBox="0 0 300 12" fill="none">
-                      <path d="M2 8 Q75 4, 150 8 T298 8" stroke="currentColor" strokeWidth="2" />
+                    <svg className="absolute -bottom-2 left-0 w-full h-3 text-primary/50" viewBox="0 0 300 12" fill="none">
+                      <path d="M2 8 Q75 4, 150 8 T298 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                     </svg>
                   </span>{" "}
-                  Today
+                  <span className="bg-gradient-to-r from-green-300 via-emerald-300 to-teal-300 bg-clip-text text-transparent">
+                    Today
+                  </span>
                 </h1>
-                <p className="text-white/90 text-lg lg:text-xl leading-relaxed max-w-2xl">
+                <p className="text-white/90 text-lg lg:text-xl leading-relaxed max-w-2xl font-medium">
                   Whether you want a demo, a consultation, or onboarding support, our team is ready to help
                   you succeed with Flexibench.
                 </p>
               </div>
+              
+              {/* Feature Pills */}
+              <div className="flex flex-wrap gap-3">
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                  <Sparkles className="h-4 w-4 text-green-300" />
+                  <span className="text-sm font-semibold text-white">Expert Consultation</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                  <Sparkles className="h-4 w-4 text-emerald-300" />
+                  <span className="text-sm font-semibold text-white">Custom Demo</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                  <Sparkles className="h-4 w-4 text-teal-300" />
+                  <span className="text-sm font-semibold text-white">Fast Onboarding</span>
+                </div>
+              </div>
             </div>
             
-            <div className="flex-1 w-full">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group">
+            <div className="flex-1 w-full animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/30 group">
+                {/* Decorative Border Glow */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400/20 via-emerald-400/20 to-teal-400/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                
                 <AspectRatio ratio={16 / 10}>
                   <Image
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=900&fit=crop&q=80"
@@ -193,7 +306,8 @@ function ContactPageContent() {
                     priority
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-green-950/80 via-green-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-green-950/90 via-green-950/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 via-transparent to-teal-500/10" />
                 </AspectRatio>
               </div>
             </div>
@@ -203,6 +317,24 @@ function ContactPageContent() {
 
       <ContactFormContent formType={formType} setFormType={setFormType} />
       <Footer1 />
+      
+      {/* Enhanced Animation Styles */}
+      <style jsx global>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+      `}</style>
     </>
   );
 }

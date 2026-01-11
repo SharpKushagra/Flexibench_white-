@@ -21,7 +21,7 @@ const iconMap: Record<string, typeof Network> = {
 export function PlatformOverviewSection() {
   return (
     <section
-      className="relative bg-gradient-to-br from-blue-950/40 via-purple-950/30 to-indigo-950/40 section-padding-y border-b overflow-hidden"
+      className="relative bg-gradient-to-br from-blue-950 via-indigo-950 to-purple-950 dark:from-blue-950 dark:via-indigo-950 dark:to-purple-950 section-padding-y border-b overflow-hidden"
       aria-labelledby="platform-heading"
       id="platform"
     >
@@ -43,7 +43,7 @@ export function PlatformOverviewSection() {
         {/* Section Header - Centered */}
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6 mb-16">
           <Tagline>Feature Modules</Tagline>
-          <h2 id="platform-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+          <h2 id="platform-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
             Built for{" "}
             <span className="relative inline-block text-primary">
               Enterprise Scale
@@ -52,17 +52,18 @@ export function PlatformOverviewSection() {
               </svg>
             </span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
+          <p className="text-blue-100 dark:text-blue-200 text-lg leading-relaxed max-w-2xl">
             Four core modules that work together to deliver model-ready data with quality, consistency, and governance.
           </p>
         </div>
 
-        {/* Enhanced Grid Layout - Tech-Focused Design with Numbered Badges */}
+        {/* Enhanced Grid Layout - Tech-Focused Design with Staggered Animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative">
           {/* Connecting Line Decoration */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-y-1/2" />
           
           {platformModules.map((module, index) => {
+            const animationDelay = index * 150;
             const IconComponent = iconMap[module.icon] || Network;
             const moduleImages = [
               "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80", // Ontology
@@ -74,13 +75,9 @@ export function PlatformOverviewSection() {
             return (
               <div
                 key={module.id}
-                className="group relative bg-background/95 backdrop-blur-sm rounded-3xl border border-white/10 p-0 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:border-primary/40 overflow-hidden"
+                className="group relative bg-background/95 backdrop-blur-sm rounded-3xl border border-white/10 p-0 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:border-primary/40 overflow-hidden opacity-0 animate-fade-in-up"
+                style={{ animationDelay: `${animationDelay}ms` }}
               >
-                {/* Number Badge */}
-                <div className="absolute -top-4 -right-4 z-20 w-12 h-12 bg-gradient-to-br from-primary to-primary/70 rounded-full flex items-center justify-center shadow-xl border-4 border-background">
-                  <span className="text-white font-bold text-lg">{index + 1}</span>
-                </div>
-                
                 {/* Animated Background Glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -94,16 +91,6 @@ export function PlatformOverviewSection() {
                     className="object-cover group-hover:scale-125 transition-transform duration-1000"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-                  {/* Icon Badge Overlay */}
-                  <div className="absolute top-6 left-6">
-                    <div className="bg-background/95 backdrop-blur-md rounded-2xl p-4 border-2 border-primary/30 shadow-2xl transform group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="h-8 w-8 text-primary" />
-                    </div>
-                  </div>
-                  {/* Module Number in Image */}
-                  <div className="absolute bottom-6 left-6">
-                    <div className="text-white/20 font-black text-6xl leading-none">{String(index + 1).padStart(2, '0')}</div>
-                  </div>
                 </div>
                 
                 <div className="relative flex flex-col gap-5 p-8 bg-background/95">

@@ -10,7 +10,7 @@ import Link from "next/link";
 export function HeroSection2() {
   return (
     <section
-      className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-slate-950 dark:via-blue-950/30 dark:to-indigo-950/20 pt-20 pb-24 overflow-hidden border-b"
+      className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-slate-950 dark:via-blue-950/30 dark:to-indigo-950/20 pt-4 pb-24 overflow-hidden border-b"
       aria-labelledby="hero-heading"
     >
       {/* Enhanced Background Elements with Animation */}
@@ -177,77 +177,158 @@ export function HeroSection2() {
 
           {/* Right Column - Enhanced Visual with Better Design */}
           <div className="w-full flex-1 relative lg:max-w-2xl">
-            {/* Animated Zigzag Stairs Path - Positioned at Top Right */}
-            <div className="absolute top-0 right-0 z-30 hidden lg:block" style={{ width: '450px', height: '280px', pointerEvents: 'none' }}>
+            {/* Enhanced Smooth Staircase Animation - Positioned at Top Right */}
+            <div className="absolute top-4 right-0 z-30 hidden lg:block" style={{ width: '500px', height: '260px', pointerEvents: 'none' }}>
               <svg 
                 width="100%" 
                 height="100%" 
-                viewBox="0 0 500 380" 
+                viewBox="0 100 520 240" 
                 className="absolute inset-0"
                 style={{ overflow: 'visible' }}
+                preserveAspectRatio="xMidYMin meet"
               >
-                {/* Zigzag Staircase Path - Thicker and More Prominent */}
-                <path
-                  d="M 30 320 L 160 320 L 160 240 L 260 240 L 260 160 L 360 160 L 360 80 L 460 80"
-                  stroke="url(#stairGradient)"
-                  strokeWidth="22"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                  className="animate-path-draw"
-                  style={{
-                    filter: 'drop-shadow(0 6px 16px rgba(251, 146, 60, 0.5))',
-                  }}
-                />
-                
-                {/* Gradient Definition */}
                 <defs>
+                  {/* Enhanced Gradient */}
                   <linearGradient id="stairGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="rgb(251, 146, 60)" stopOpacity="1" />
-                    <stop offset="50%" stopColor="rgb(239, 68, 68)" stopOpacity="1" />
+                    <stop offset="33%" stopColor="rgb(239, 68, 68)" stopOpacity="1" />
+                    <stop offset="66%" stopColor="rgb(168, 85, 247)" stopOpacity="1" />
                     <stop offset="100%" stopColor="rgb(59, 130, 246)" stopOpacity="1" />
                   </linearGradient>
                   
                   {/* Glow Filter */}
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                  <filter id="pathGlow">
+                    <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
                     <feMerge>
                       <feMergeNode in="coloredBlur"/>
                       <feMergeNode in="SourceGraphic"/>
                     </feMerge>
                   </filter>
+                  
+                  {/* Animated Gradient for Flow Effect */}
+                  <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="rgb(251, 146, 60)" stopOpacity="0.6" />
+                    <stop offset="33%" stopColor="rgb(239, 68, 68)" stopOpacity="0.5" />
+                    <stop offset="66%" stopColor="rgb(168, 85, 247)" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="rgb(59, 130, 246)" stopOpacity="0.3" />
+                  </linearGradient>
                 </defs>
                 
-                {/* Animated Points Along Path */}
-                {[0, 0.2, 0.4, 0.6, 0.8, 1].map((offset, i) => (
+                {/* Main Staircase Path with Smooth Animation */}
+                <path
+                  d="M 40 340 L 180 340 L 180 260 L 280 260 L 280 180 L 380 180 L 380 100 L 480 100"
+                  stroke="url(#stairGradient)"
+                  strokeWidth="24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                  opacity="1"
+                  style={{
+                    filter: 'drop-shadow(0 4px 12px rgba(251, 146, 60, 0.4))',
+                  }}
+                  className="stair-path"
+                />
+                
+                {/* Secondary Glow Path for Depth */}
+                <path
+                  d="M 40 340 L 180 340 L 180 260 L 280 260 L 280 180 L 380 180 L 380 100 L 480 100"
+                  stroke="url(#flowGradient)"
+                  strokeWidth="32"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                  opacity="0.3"
+                  style={{
+                    filter: 'blur(8px)',
+                  }}
+                  className="stair-glow"
+                />
+                
+                {/* Smooth Flowing Particles */}
+                {[0, 0.2, 0.4, 0.6, 0.8].map((offset, i) => {
+                  const colors = [
+                    'rgb(251, 146, 60)',
+                    'rgb(239, 68, 68)',
+                    'rgb(168, 85, 247)',
+                    'rgb(59, 130, 246)',
+                    'rgb(251, 146, 60)'
+                  ];
+                  return (
+                    <circle
+                      key={i}
+                      r="10"
+                      fill={colors[i]}
+                      opacity="0.95"
+                      style={{
+                        filter: `drop-shadow(0 0 14px ${colors[i]})`,
+                      }}
+                    >
+                      <animateMotion
+                        dur="3.5s"
+                        repeatCount="indefinite"
+                        calcMode="linear"
+                        path="M 40 340 L 180 340 L 180 260 L 280 260 L 280 180 L 380 180 L 380 100 L 480 100"
+                        begin={`${i * 0.7}s`}
+                      />
+                      <animate
+                        attributeName="r"
+                        values="8;12;8"
+                        dur="1.8s"
+                        repeatCount="indefinite"
+                        begin={`${i * 0.3}s`}
+                      />
+                      <animate
+                        attributeName="opacity"
+                        values="0.8;1;0.8"
+                        dur="1.8s"
+                        repeatCount="indefinite"
+                        begin={`${i * 0.3}s`}
+                      />
+                    </circle>
+                  );
+                })}
+                
+                {/* Additional Floating Particles for Sparkle Effect */}
+                {[0.1, 0.3, 0.5, 0.7, 0.9].map((offset, i) => (
                   <circle
-                    key={i}
-                    r="10"
-                    fill="rgb(251, 146, 60)"
-                    className="animate-pulse"
-                    style={{
-                      animationDelay: `${i * 0.25}s`,
-                      filter: 'drop-shadow(0 0 8px rgba(251, 146, 60, 0.8))',
-                    }}
+                    key={`sparkle-${i}`}
+                    r="5"
+                    fill="white"
+                    opacity="0.7"
                   >
                     <animateMotion
                       dur="5s"
                       repeatCount="indefinite"
-                      path="M 30 320 L 160 320 L 160 240 L 260 240 L 260 160 L 360 160 L 360 80 L 460 80"
-                      keyPoints={offset}
-                      keyTimes={offset}
+                      calcMode="linear"
+                      path="M 40 340 L 180 340 L 180 260 L 280 260 L 280 180 L 380 180 L 380 100 L 480 100"
+                      begin={`${i * 1}s`}
+                    />
+                    <animate
+                      attributeName="opacity"
+                      values="0;0.9;0"
+                      dur="2s"
+                      repeatCount="indefinite"
+                      begin={`${i * 0.4}s`}
+                    />
+                    <animate
+                      attributeName="r"
+                      values="4;7;4"
+                      dur="2s"
+                      repeatCount="indefinite"
+                      begin={`${i * 0.4}s`}
                     />
                   </circle>
                 ))}
               </svg>
               
-              {/* Enhanced Glow Effects */}
-              <div className="absolute -top-16 -right-16 w-80 h-80 bg-gradient-to-br from-orange-500/40 via-red-500/30 to-blue-500/40 rounded-full blur-3xl animate-pulse" />
-              <div className="absolute -bottom-20 -left-20 w-[500px] h-40 bg-gradient-to-r from-orange-500/25 via-red-500/25 to-blue-500/25 rounded-full blur-2xl" />
+              {/* Enhanced Glow Effects with Smooth Animation */}
+              <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-orange-500/30 via-red-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+              <div className="absolute -bottom-24 -left-24 w-[600px] h-48 bg-gradient-to-r from-orange-500/20 via-red-500/15 to-blue-500/20 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
+              <div className="absolute top-1/2 -right-12 w-64 h-64 bg-gradient-to-br from-blue-500/15 to-purple-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
             </div>
             
             {/* Main Image Container with Enhanced Effects - Positioned below animation */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-border/50 group" style={{ marginTop: '280px' }}>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-border/50 group" style={{ marginTop: '272px' }}>
               {/* Decorative Border Glow */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-blue-500/20 to-indigo-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
               

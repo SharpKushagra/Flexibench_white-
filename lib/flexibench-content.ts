@@ -13,12 +13,12 @@ export const useCases = [
   },
   {
     id: 2,
-    title: "Radiology Tumor Boundary Segmentation",
-    industry: "Healthcare & Life Sciences",
-    modality: "Image",
-    problem: "Automated models could not delineate tumor margins precisely.",
-    solution: "Pixel-level segmentation with expert QA protocol.",
-    impact: "Enabled higher accuracy in detection models and surgical planning tools.",
+    title: "Pedestrian Occlusion Track Annotation for AV Safety",
+    industry: "Automotive & Mobility",
+    modality: "Video",
+    problem: "Autonomous systems misidentified partially occluded pedestrians.",
+    solution: "Frame-level tracking with temporal identity continuity.",
+    impact: "Reduced false negatives and strengthened AV detection fidelity.",
   },
   {
     id: 3,
@@ -32,12 +32,12 @@ export const useCases = [
   // Automotive & Mobility
   {
     id: 4,
-    title: "Pedestrian Occlusion Track Annotation for AV Safety",
-    industry: "Automotive & Mobility",
-    modality: "Video",
-    problem: "Autonomous systems misidentified partially occluded pedestrians.",
-    solution: "Frame-level tracking with temporal identity continuity.",
-    impact: "Reduced false negatives and strengthened AV detection fidelity.",
+    title: "Radiology Tumor Boundary Segmentation",
+    industry: "Healthcare & Life Sciences",
+    modality: "Image",
+    problem: "Automated models could not delineate tumor margins precisely.",
+    solution: "Pixel-level segmentation with expert QA protocol.",
+    impact: "Enabled higher accuracy in detection models and surgical planning tools.",
   },
   {
     id: 5,

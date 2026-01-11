@@ -2,15 +2,50 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { useEffect, useRef, useState } from "react";
+
+function AnimatedCounter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(false);
+
+  useEffect(() => {
+    if (countRef.current) return;
+    countRef.current = true;
+
+    const increment = end / (duration / 16);
+    const timer = setInterval(() => {
+      setCount((prev) => {
+        const next = prev + increment;
+        if (next >= end) {
+          clearInterval(timer);
+          return end;
+        }
+        return next;
+      });
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [end, duration]);
+
+  return <span>{Math.floor(count).toLocaleString()}{suffix}</span>;
+}
 
 export function StatsSection4() {
   return (
-    <section className="relative bg-gradient-to-br from-secondary/50 via-background to-secondary/30 section-padding-y border-b overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+    <section className="relative bg-gradient-to-br from-blue-950 via-cyan-950 to-sky-950 dark:from-blue-950 dark:via-cyan-950 dark:to-sky-950 section-padding-y border-b overflow-hidden">
+      {/* Enhanced Background Pattern */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '5s' }} />
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)`,
           backgroundSize: '32px 32px'
+        }} />
+        {/* Animated Grid */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+                            linear-gradient(0deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
         }} />
       </div>
 
@@ -18,18 +53,18 @@ export function StatsSection4() {
         <div className="flex flex-col gap-12 md:gap-16">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6">
             <Tagline>Impact</Tagline>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
               Trusted by Data-Driven Teams{" "}
-              <span className="text-primary">Worldwide</span>
+              <span className="text-cyan-400">Worldwide</span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-blue-100 dark:text-blue-200 text-lg leading-relaxed">
               Flexibench enables organizations to produce higher fidelity datasets, more consistent
               models, and faster iteration cycles ensuring annotation is a force multiplier, not a bottleneck.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
-            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30">
+            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 animate-fade-in-up" style={{ animationDelay: '0ms' }}>
               <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl -mr-12 -mt-12" />
               <CardContent className="relative flex flex-col gap-4 p-0">
                 <div className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 rounded-xl p-3 w-fit">
@@ -39,7 +74,7 @@ export function StatsSection4() {
                 </div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-foreground text-5xl md:text-6xl font-bold">
-                    5M+
+                    <AnimatedCounter end={5000000} suffix="+" duration={2000} />
                   </span>
                 </div>
                 <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-2" />
@@ -49,7 +84,7 @@ export function StatsSection4() {
               </CardContent>
             </Card>
 
-            <Card className="group relative bg-gradient-to-br from-secondary/40 via-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30">
+            <Card className="group relative bg-gradient-to-br from-secondary/40 via-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <div className="absolute top-0 right-0 w-24 h-24 bg-green-500/10 rounded-full blur-2xl -mr-12 -mt-12" />
               <CardContent className="relative flex flex-col gap-4 p-0">
                 <div className="bg-gradient-to-br from-green-500/20 to-green-500/5 rounded-xl p-3 w-fit">
@@ -70,7 +105,7 @@ export function StatsSection4() {
               </CardContent>
             </Card>
 
-            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30">
+            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl -mr-12 -mt-12" />
               <CardContent className="relative flex flex-col gap-4 p-0">
                 <div className="bg-gradient-to-br from-purple-500/20 to-purple-500/5 rounded-xl p-3 w-fit">
@@ -78,11 +113,11 @@ export function StatsSection4() {
                     Time Saved
                   </h3>
                 </div>
-                <div className="flex items-baseline gap-2">
+                <div className="flex items-baseline gap-2 flex-wrap">
                   <span className="text-foreground text-5xl md:text-6xl font-bold">
-                    500K+
+                    <AnimatedCounter end={500000} suffix="+" duration={2000} />
                   </span>
-                  <span className="text-muted-foreground text-lg font-semibold">hours</span>
+                  <span className="text-muted-foreground text-lg font-semibold whitespace-nowrap">hours</span>
                 </div>
                 <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-2" />
                 <p className="text-muted-foreground text-sm leading-relaxed">

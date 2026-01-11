@@ -13,23 +13,30 @@ const brands = [
 
 export function LogoSection10() {
   return (
-    <section className="relative bg-gradient-to-b from-background via-secondary/30 to-background border-b py-24 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-indigo-950 via-purple-950 to-violet-950 dark:from-indigo-950 dark:via-purple-950 dark:to-violet-950 border-b py-24 lg:py-32 overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute inset-0 opacity-30" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
           backgroundSize: '64px 64px'
+        }} />
+        {/* Animated Grid Lines */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+                            linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundSize: '48px 48px'
         }} />
       </div>
 
       <div className="container-padding-x container mx-auto relative z-10">
         <div className="flex flex-col items-center gap-12 md:gap-16">
           {/* Enhanced Header */}
-          <div className="section-title-gap-lg flex max-w-2xl flex-col items-center text-center">
+          <div className="section-title-gap-lg flex max-w-2xl flex-col items-center text-center opacity-0 animate-fade-in-up">
             <Tagline variant="ghost" className="mb-2">Trusted by industry leaders</Tagline>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
               Powering data-driven AI teams across industries
             </h2>
           </div>

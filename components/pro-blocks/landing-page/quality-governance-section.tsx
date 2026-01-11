@@ -17,25 +17,30 @@ const iconMap: Record<string, typeof Target> = {
 export function QualityGovernanceSection() {
   return (
     <section
-      className="relative bg-gradient-to-br from-background via-secondary/30 to-secondary/50 section-padding-y border-b overflow-hidden"
+      className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 section-padding-y border-b overflow-hidden"
       id="quality-governance"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(90deg, transparent 40%, currentColor 50%, transparent 60%)`,
-          backgroundSize: '80px 80px'
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '5s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-500/5 rounded-full blur-3xl" />
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style={{
+          backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+                            linear-gradient(0deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
         }} />
       </div>
 
       <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6">
           <Tagline>Quality & Governance</Tagline>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
             Annotation with{" "}
-            <span className="text-primary">Accountability</span>
+            <span className="text-emerald-400">Accountability</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-slate-300 dark:text-slate-400 text-lg leading-relaxed">
             Built for Trust, Consistency, and Deployable AI. High-quality labels are non-negotiable for reliable models. 
             Flexibench embeds robust quality engineering and governance into every annotation workflow.
           </p>
@@ -46,10 +51,13 @@ export function QualityGovernanceSection() {
             const IconComponent = iconMap[principle.icon] || Target;
             // Last item spans 2 columns on large screens
             const colSpan = index === 4 ? "lg:col-span-2" : "";
+            const animationDelay = index * 120;
+            const animations = ['animate-scale-in', 'animate-fade-in-up', 'animate-scale-in', 'animate-fade-in-up', 'animate-scale-in'];
             return (
               <Card
                 key={principle.title}
-                className={`group relative bg-gradient-to-br from-background to-secondary/30 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 ${colSpan}`}
+                className={`group relative bg-gradient-to-br from-background to-secondary/30 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 ${animations[index % animations.length]} ${colSpan}`}
+                style={{ animationDelay: `${animationDelay}ms` }}
               >
                 <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-xl -mr-10 -mt-10" />
                 <CardContent className="relative flex flex-col gap-6 p-0">
@@ -76,11 +84,6 @@ export function QualityGovernanceSection() {
                       className="object-cover group-hover/image:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-background/80 backdrop-blur-sm rounded-lg p-2 border border-border/20">
-                        <IconComponent className="h-8 w-8 text-primary" />
-                      </div>
-                    </div>
                   </div>
 
                   <h3 className="text-foreground text-xl font-bold leading-tight">

@@ -12,11 +12,20 @@ import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 export function FaqSection2() {
   return (
     <section
-      className="bg-background section-padding-y border-b"
+      className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-blue-950 dark:to-indigo-950 section-padding-y border-b overflow-hidden"
       aria-labelledby="faq-heading"
       id="faq"
     >
-      <div className="container-padding-x container mx-auto">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s', animationDuration: '5s' }} />
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+      <div className="container-padding-x container mx-auto relative z-10">
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
           {/* Left Column */}
           <div className="section-title-gap-lg flex flex-1 flex-col">

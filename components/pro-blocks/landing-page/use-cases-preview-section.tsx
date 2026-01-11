@@ -19,7 +19,7 @@ export function UseCasesPreviewSection() {
   // Get 3 featured use cases (first from different industries)
   const featuredUseCases = [
     useCases[0], // Healthcare - Text
-    useCases[3], // Automotive - Video
+    useCases[1], // Automotive - Video (Pedestrian Occlusion Track Annotation)
     useCases[7], // Retail - Image
   ];
 
@@ -30,10 +30,18 @@ export function UseCasesPreviewSection() {
   };
 
   return (
-    <section className="relative bg-background section-padding-y border-b overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/10 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+    <section className="relative bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50 dark:from-violet-950 dark:via-purple-950 dark:to-indigo-950 section-padding-y border-b overflow-hidden">
+      {/* Enhanced Background Gradient */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-400/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }} />
+        <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/5 via-transparent to-purple-500/5" />
+        {/* Mesh Pattern */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
+          backgroundSize: '48px 48px'
+        }} />
+      </div>
 
       <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6">
@@ -51,10 +59,13 @@ export function UseCasesPreviewSection() {
           {featuredUseCases.map((useCase, index) => {
             const IconComponent = modalityIcons[useCase.modality] || FileText;
             const colorClass = industryColors[useCase.industry] || "from-primary/10 to-primary/5";
+            const animationDelay = index * 150;
+            const animations = ['animate-fade-in-left', 'animate-fade-in-up', 'animate-fade-in-right'];
             return (
               <Card
                 key={useCase.id}
-                className={`group relative bg-gradient-to-br from-background to-secondary/30 gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30`}
+                className={`group relative bg-gradient-to-br from-background to-secondary/30 gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 ${animations[index % animations.length]}`}
+                style={{ animationDelay: `${animationDelay}ms` }}
               >
                 {/* Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${colorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -66,7 +77,7 @@ export function UseCasesPreviewSection() {
                       useCase.industry.includes("Healthcare") 
                         ? "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop&q=80"
                         : useCase.industry.includes("Automotive")
-                        ? "https://images.unsplash.com/photo-1580274455191-1c62238fa320?w=800&h=400&fit=crop&q=80"
+                        ? "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=400&fit=crop&q=80"
                         : "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=400&fit=crop&q=80"
                     }
                     alt={`${useCase.industry} use case: ${useCase.title} showing ${useCase.modality.toLowerCase()} annotation workflow`}

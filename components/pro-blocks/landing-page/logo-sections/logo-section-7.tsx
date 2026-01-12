@@ -56,14 +56,14 @@ export function LogoSection10() {
                       key={uniqueKey}
                       className="flex-shrink-0 group relative"
                     >
-                      {/* Brand Container with Gradient Border */}
-                      <div className="relative px-10 py-6 rounded-2xl bg-gradient-to-br from-background to-secondary/50 border border-border/50 shadow-lg backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:-translate-y-2">
+                      {/* Brand Container with White Background for Better Contrast */}
+                      <div className="relative px-10 py-6 rounded-2xl bg-white dark:bg-slate-900 border border-border/50 shadow-lg backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:-translate-y-2">
                         {/* Gradient Glow Effect */}
                         <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${brand.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-xl`} />
                         
                         {/* Brand Name */}
                         <div className="relative">
-                          <div className="text-foreground/70 group-hover:text-foreground transition-colors duration-300 font-bold text-xl md:text-2xl tracking-tight">
+                          <div className="text-slate-900 dark:text-slate-100 group-hover:text-foreground transition-colors duration-300 font-bold text-xl md:text-2xl tracking-tight">
                             {brand.name}
                           </div>
                           {/* Underline Effect */}

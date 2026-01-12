@@ -1,6 +1,7 @@
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
 import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { InternalToolsSection } from "@/components/pro-blocks/landing-page/internal-tools-section";
 import { Card, CardContent } from "@/components/ui/card";
 import { internalTools } from "@/lib/flexibench-content";
@@ -18,8 +19,13 @@ export default function InternalToolsPage() {
   return (
     <main>
       <LpNavbar1 />
+      {/* Breadcrumbs */}
+      <div className="container-padding-x container mx-auto pt-8 pb-4">
+        <Breadcrumbs items={[{ label: "Internal Tools" }]} />
+      </div>
+
       {/* Enhanced Hero Section */}
-      <section className="relative bg-gradient-to-br from-amber-950 via-orange-900 to-red-900 section-padding-y border-b overflow-hidden">
+      <section className="relative bg-gradient-to-br from-amber-950 via-orange-900 to-red-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '48px 48px'

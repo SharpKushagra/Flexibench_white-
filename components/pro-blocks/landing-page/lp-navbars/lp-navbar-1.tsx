@@ -18,7 +18,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 const MENU_ITEMS = [
   { 
     label: "Platform", 
-    href: "#platform",
+    href: "/platform",
     dropdown: [
       { label: "Overview", href: "/platform" },
       { label: "Feature Modules", href: "/#platform" },
@@ -108,7 +108,7 @@ export function LpNavbar1() {
           <NavMenuItems />
           <ThemeToggle />
           <Link href="/contact">
-            <Button>Get Started</Button>
+            <Button className="hover:scale-105 transition-transform duration-200">Get Started</Button>
           </Link>
         </div>
 
@@ -121,7 +121,7 @@ export function LpNavbar1() {
               <ThemeToggle />
             </div>
             <Link href="/contact">
-              <Button className="w-full">Get Started</Button>
+              <Button className="w-full hover:scale-105 transition-transform duration-200">Get Started</Button>
             </Link>
           </div>
         )}

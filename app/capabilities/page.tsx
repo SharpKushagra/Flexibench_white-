@@ -1,6 +1,7 @@
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
 import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { capabilities } from "@/lib/flexibench-content";
 import { FileText, Image as ImageIcon, Video, Music, ArrowRight, Sparkles, Layers, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -58,10 +59,15 @@ const capabilityGradients: Record<string, string> = {
 
 export default function CapabilitiesPage() {
   return (
-    <main>
+    <main id="main-content">
       <LpNavbar1 />
+      {/* Breadcrumbs */}
+      <div className="container-padding-x container mx-auto pt-8 pb-4">
+        <Breadcrumbs items={[{ label: "Capabilities" }]} />
+      </div>
+
       {/* Enhanced Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-950 via-indigo-900 to-blue-900 section-padding-y border-b overflow-hidden">
+      <section className="relative bg-gradient-to-br from-purple-950 via-indigo-900 to-blue-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,

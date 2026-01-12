@@ -2,6 +2,7 @@ import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-na
 import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1";
 import { PlatformOverviewSection } from "@/components/pro-blocks/landing-page/platform-overview-section";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Card, CardContent } from "@/components/ui/card";
 import { platformModules } from "@/lib/flexibench-content";
 import { Network, Sparkles, Shield, Plug } from "lucide-react";
@@ -17,10 +18,15 @@ const iconMap: Record<string, typeof Network> = {
 
 export default function PlatformPage() {
   return (
-    <main>
+    <main id="main-content">
       <LpNavbar1 />
+      {/* Breadcrumbs */}
+      <div className="container-padding-x container mx-auto pt-8 pb-4">
+        <Breadcrumbs items={[{ label: "Platform" }]} />
+      </div>
+
       {/* Enhanced Hero Section with Image */}
-      <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 section-padding-y border-b overflow-hidden">
+      <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,

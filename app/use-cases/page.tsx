@@ -3,6 +3,7 @@
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
 import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { useCases, industries, modalities } from "@/lib/flexibench-content";
 import { FileText, Image as ImageIcon, Video, Music, Search, ArrowRight, Sparkles, TrendingUp, Zap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -123,8 +124,13 @@ export default function UseCasesPage() {
     <main className="relative">
       <LpNavbar1 />
       
+      {/* Breadcrumbs */}
+      <div className="container-padding-x container mx-auto pt-8 pb-4">
+        <Breadcrumbs items={[{ label: "Use Cases" }]} />
+      </div>
+      
       {/* Extraordinary Hero Section */}
-      <section className="relative bg-gradient-to-br from-pink-950 via-rose-900 to-red-900 section-padding-y border-b overflow-hidden min-h-[90vh] flex items-center">
+      <section className="relative bg-gradient-to-br from-pink-950 via-rose-900 to-red-900 section-padding-y border-b overflow-hidden min-h-[90vh] flex items-center" style={{ paddingTop: '80px' }}>
         {/* Animated Mesh Gradient Background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-pink-600/8 via-rose-600/6 to-red-600/8" />

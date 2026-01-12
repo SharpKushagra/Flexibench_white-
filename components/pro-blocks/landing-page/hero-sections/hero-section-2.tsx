@@ -10,7 +10,7 @@ import Link from "next/link";
 export function HeroSection2() {
   return (
     <section
-      className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-slate-950 dark:via-blue-950/30 dark:to-indigo-950/20 pt-4 pb-24 overflow-hidden border-b"
+      className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-slate-950 dark:via-blue-950/30 dark:to-indigo-950/20 pt-20 pb-24 overflow-hidden border-b"
       aria-labelledby="hero-heading"
     >
       {/* Subtle Background Elements */}
@@ -135,7 +135,7 @@ export function HeroSection2() {
               <Button 
                 asChild 
                 size="lg" 
-                className="text-base px-8 py-6 h-auto bg-primary hover:bg-primary/90 shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300"
+                className="text-base px-8 py-6 h-auto bg-primary hover:bg-primary/90 shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 <Link href="/contact" className="group/btn">
                   Get Started
@@ -146,7 +146,7 @@ export function HeroSection2() {
                 variant="outline" 
                 size="lg" 
                 asChild 
-                className="text-base px-8 py-6 h-auto border-2 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:-translate-y-0.5"
+                className="text-base px-8 py-6 h-auto border-2 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 <Link href="/#platform" className="group/btn">
                   Explore Platform

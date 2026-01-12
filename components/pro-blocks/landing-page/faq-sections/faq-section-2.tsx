@@ -60,6 +60,7 @@ export function FaqSection2() {
                 <Accordion
                   type="single"
                   collapsible
+                  defaultValue="item-1"
                   aria-label="General FAQ items"
                 >
                   {/* FAQ Item 1 */}
@@ -128,6 +129,7 @@ export function FaqSection2() {
                 <Accordion
                   type="single"
                   collapsible
+                  defaultValue="technical-1"
                   aria-label="Technical FAQ items"
                 >
                   {/* FAQ Item 1 */}

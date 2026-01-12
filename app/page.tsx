@@ -16,7 +16,7 @@ import { testimonials } from "@/lib/flexibench-content";
 
 export default function Page() {
   return (
-    <main>
+    <main id="main-content">
       <LpNavbar1 />
       <HeroSection2 />
       <LogoSection10 />

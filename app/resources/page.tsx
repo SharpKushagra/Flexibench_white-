@@ -3,6 +3,7 @@
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
 import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, FileText, GraduationCap, ArrowRight, Sparkles } from "lucide-react";
@@ -73,11 +74,16 @@ export default function ResourcesPage() {
   ];
 
   return (
-    <>
+    <main id="main-content">
       <LpNavbar1 />
       
+      {/* Breadcrumbs */}
+      <div className="container-padding-x container mx-auto pt-8 pb-4">
+        <Breadcrumbs items={[{ label: "Resources" }]} />
+      </div>
+
       {/* Enhanced Hero Section with Animations */}
-      <section className="relative bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-900 section-padding-y border-b overflow-hidden">
+      <section className="relative bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
@@ -250,9 +256,9 @@ export default function ResourcesPage() {
                     
                     <Button
                       asChild
-                      className="w-fit bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5 mt-2"
+                      className="w-fit bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 mt-2"
                     >
-                      <Link href="#">
+                      <Link href={`/resources/${resource.title.toLowerCase().replace(/\s+/g, '-')}`}>
                         {resource.buttonText}
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
@@ -266,28 +272,6 @@ export default function ResourcesPage() {
       </section>
 
       <Footer1 />
-      
-      {/* Enhanced Animation Styles */}
-      <style jsx global>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        
-        .animate-fade-in-up {
-          animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-        }
-        
-        .resources-grid {
-          opacity: 1;
-        }
-      `}</style>
-    </>
+    </main>
   );
 }

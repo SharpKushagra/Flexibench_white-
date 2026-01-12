@@ -107,19 +107,19 @@ export function Footer1() {
             aria-label="Legal links"
           >
             <Link
-              href="#"
+              href="/privacy"
               className="text-slate-400 hover:text-slate-200 transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
-              href="#"
+              href="/terms"
               className="text-slate-400 hover:text-slate-200 transition-colors"
             >
               Terms of Service
             </Link>
             <Link
-              href="#"
+              href="/cookies"
               className="text-slate-400 hover:text-slate-200 transition-colors"
             >
               Cookies Settings

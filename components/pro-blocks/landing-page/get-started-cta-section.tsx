@@ -68,10 +68,10 @@ export function GetStartedCtaSection() {
                     Get a tailored demo and learn how Flexibench can fit your annotation needs.
                   </p>
                 </div>
-                <Button asChild size="lg" className="w-full text-base">
-                  <Link href="/contact?type=sales">
+                <Button asChild size="lg" className="w-full text-base hover:scale-105 transition-transform duration-200">
+                  <Link href="/contact?type=sales" className="group/btn">
                     Contact Sales
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-200" />
                   </Link>
                 </Button>
               </CardContent>
@@ -89,10 +89,10 @@ export function GetStartedCtaSection() {
                     Choose a time and let us walk you through the platform.
                   </p>
                 </div>
-                <Button variant="default" asChild size="lg" className="w-full text-base bg-primary hover:bg-primary/90">
-                  <Link href="/contact?type=demo">
+                <Button variant="default" asChild size="lg" className="w-full text-base bg-primary hover:bg-primary/90 hover:scale-105 transition-transform duration-200">
+                  <Link href="/contact?type=demo" className="group/btn">
                     Schedule Demo
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-200" />
                   </Link>
                 </Button>
               </CardContent>

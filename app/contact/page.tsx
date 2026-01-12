@@ -1,6 +1,7 @@
 "use client";
 
 import { LpNavbar1 } from "@/components/pro-blocks/landing-page/lp-navbars/lp-navbar-1";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Footer1 } from "@/components/pro-blocks/landing-page/footers/footer-1";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 import { Button } from "@/components/ui/button";
@@ -233,11 +234,16 @@ function ContactPageContent() {
   const [formType, setFormType] = useState<"sales" | "demo">(initialFormType);
 
   return (
-    <>
+    <main id="main-content">
       <LpNavbar1 />
       
+      {/* Breadcrumbs */}
+      <div className="container-padding-x container mx-auto pt-8 pb-4">
+        <Breadcrumbs items={[{ label: "Contact" }]} />
+      </div>
+
       {/* Enhanced Hero Section with Animations */}
-      <section className="relative bg-gradient-to-br from-green-950 via-emerald-900 to-teal-900 section-padding-y border-b overflow-hidden">
+      <section className="relative bg-gradient-to-br from-green-950 via-emerald-900 to-teal-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
@@ -341,7 +347,7 @@ function ContactPageContent() {
 
 export default function ContactPage() {
   return (
-    <main>
+    <main id="main-content">
       <Suspense fallback={
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-muted-foreground">Loading...</div>

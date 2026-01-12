@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Onest } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const onest = Onest({
   subsets: ["latin"],
@@ -25,7 +26,14 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning className="scroll-smooth">
         <head />
         <body className={`${onest.variable} relative antialiased`}>
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={false}
+            disableTransitionOnChange={false}
+          >
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </>

@@ -27,8 +27,8 @@ export default function PlatformPage() {
           backgroundSize: '48px 48px'
         }} />
         {/* Animated Gradients */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
         
         <div className="container-padding-x container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -36,7 +36,7 @@ export default function PlatformPage() {
             <div className="flex-1 flex flex-col gap-8 text-white">
               <div className="section-title-gap-lg flex flex-col">
                 <Tagline variant="white" className="mb-4">Platform</Tagline>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white">
                   The Enterprise Annotation Control Plane for{" "}
                   <span className="relative inline-block">
                     Model-Ready Data
@@ -90,7 +90,7 @@ export default function PlatformPage() {
           <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
             <div className="flex-1 max-w-xl">
               <Tagline className="mb-6">Platform Value</Tagline>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-foreground mb-6">
                 At its core, Flexibench is not just a{" "}
                 <span className="relative inline-block text-primary">
                   labeling tool

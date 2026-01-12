@@ -33,9 +33,9 @@ export function UseCasesPreviewSection() {
     <section className="relative bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50 dark:from-violet-950 dark:via-purple-950 dark:to-indigo-950 section-padding-y border-b overflow-hidden">
       {/* Enhanced Background Gradient */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-400/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }} />
-        <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/5 via-transparent to-purple-500/5" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-400/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-400/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/2 via-transparent to-purple-500/2" />
         {/* Mesh Pattern */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
@@ -46,7 +46,7 @@ export function UseCasesPreviewSection() {
       <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6">
           <Tagline>Use Cases</Tagline>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
             Annotation Use Cases Across{" "}
             <span className="text-primary">Industries</span>
           </h2>

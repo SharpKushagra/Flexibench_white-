@@ -83,14 +83,14 @@ export default function ResourcesPage() {
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '48px 48px'
         }} />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-emerald-500/10 via-transparent to-cyan-500/10 rounded-full blur-3xl" />
         
         {/* Animated Lines */}
         <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent animate-pulse" />
-          <div className="absolute top-2/4 right-0 w-px h-full bg-gradient-to-b from-transparent via-cyan-400/30 to-transparent animate-pulse" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/10 to-transparent" />
+          <div className="absolute top-2/4 right-0 w-px h-full bg-gradient-to-b from-transparent via-cyan-400/10 to-transparent" />
         </div>
         
         <div className="container-padding-x container mx-auto relative z-10">
@@ -98,7 +98,7 @@ export default function ResourcesPage() {
             <div className="flex-1 flex flex-col gap-8 text-white animate-fade-in-up">
               <div className="section-title-gap-lg flex flex-col">
                 <Tagline variant="white" className="mb-4">Resources</Tagline>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
                   Learn. Explore.{" "}
                   <span className="relative inline-block">
                     Master

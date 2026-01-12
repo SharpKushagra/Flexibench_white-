@@ -127,9 +127,9 @@ export default function UseCasesPage() {
       <section className="relative bg-gradient-to-br from-pink-950 via-rose-900 to-red-900 section-padding-y border-b overflow-hidden min-h-[90vh] flex items-center">
         {/* Animated Mesh Gradient Background */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-pink-600/40 via-rose-600/30 to-red-600/40 animate-pulse" />
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-orange-600/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-pink-600/8 via-rose-600/6 to-red-600/8" />
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-orange-600/5 rounded-full blur-3xl" />
         </div>
         
         {/* Animated Grid Pattern */}
@@ -167,7 +167,7 @@ export default function UseCasesPage() {
                     <span className="text-xs font-bold text-white">22 Real-World Cases</span>
                   </div>
                 </div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[0.95] tracking-tight text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white">
                   Explore{" "}
                   <span className="relative inline-block">
                     <span className="bg-gradient-to-r from-pink-300 via-rose-300 to-red-300 bg-clip-text text-transparent">
@@ -213,7 +213,7 @@ export default function UseCasesPage() {
             <div className="flex-1 w-full animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/30 group">
                 {/* Animated Border Glow */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-pink-500/40 via-rose-500/40 to-red-500/40 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 animate-pulse" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-pink-500/10 via-rose-500/10 to-red-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                 
                 <AspectRatio ratio={16 / 10}>
                   <Image
@@ -296,8 +296,8 @@ export default function UseCasesPage() {
         }} />
         
         {/* Enhanced Floating Gradient Orbs */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pink-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-red-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-pink-500/10 via-transparent to-red-500/10 rounded-full blur-3xl" />
         
         <div className="container-padding-x container mx-auto relative z-10">

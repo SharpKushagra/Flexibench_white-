@@ -13,25 +13,18 @@ export function HeroSection2() {
       className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-slate-950 dark:via-blue-950/30 dark:to-indigo-950/20 pt-4 pb-24 overflow-hidden border-b"
       aria-labelledby="hero-heading"
     >
-      {/* Enhanced Background Elements with Animation */}
+      {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated Gradient Orbs */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/20 via-blue-500/10 to-transparent rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-purple-500/15 via-indigo-500/10 to-transparent rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-full blur-3xl" />
+        {/* Subtle Gradient Orbs */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/5 via-blue-500/3 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/4 via-indigo-500/2 to-transparent rounded-full blur-3xl" />
         
         {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
+        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style={{
           backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px),
                             linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
           backgroundSize: '48px 48px'
         }} />
-        
-        {/* Animated Lines */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-pulse" />
-          <div className="absolute top-2/4 right-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent animate-pulse delay-500" />
-        </div>
       </div>
 
       <div className="container-padding-x container mx-auto relative z-10 pt-0">
@@ -50,7 +43,7 @@ export function HeroSection2() {
             
             {/* Main Heading with Enhanced Typography */}
             <div className="space-y-4">
-              <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] tracking-tight">
+              <h1 id="hero-heading" className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight">
                 Build{" "}
                 <span className="relative inline-block">
                   Model-Ready
@@ -84,9 +77,9 @@ export function HeroSection2() {
 
             {/* Enhanced Feature Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1">
+              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover-lift">
                 <div className="bg-gradient-to-br from-primary/20 to-blue-500/10 rounded-xl p-3 mt-0.5 group-hover:scale-110 transition-transform duration-300">
-                  <Check className="text-primary h-5 w-5" />
+                  <Check className="text-primary h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
                 <div className="flex-1">
                   <p className="font-bold text-base mb-1.5 text-foreground">Multimodal Support</p>
@@ -97,7 +90,7 @@ export function HeroSection2() {
                 </div>
               </div>
 
-              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1">
+              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover-lift">
                 <div className="bg-gradient-to-br from-primary/20 to-purple-500/10 rounded-xl p-3 mt-0.5 group-hover:scale-110 transition-transform duration-300">
                   <Zap className="text-primary h-5 w-5" />
                 </div>
@@ -110,7 +103,7 @@ export function HeroSection2() {
                 </div>
               </div>
 
-              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1">
+              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover-lift">
                 <div className="bg-gradient-to-br from-primary/20 to-indigo-500/10 rounded-xl p-3 mt-0.5 group-hover:scale-110 transition-transform duration-300">
                   <Check className="text-primary h-5 w-5" />
                 </div>
@@ -123,9 +116,9 @@ export function HeroSection2() {
                 </div>
               </div>
 
-              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1">
+              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover-lift">
                 <div className="bg-gradient-to-br from-primary/20 to-blue-500/10 rounded-xl p-3 mt-0.5 group-hover:scale-110 transition-transform duration-300">
-                  <Check className="text-primary h-5 w-5" />
+                  <Check className="text-primary h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
                 <div className="flex-1">
                   <p className="font-bold text-base mb-1.5 text-foreground">API-First Design</p>
@@ -142,11 +135,11 @@ export function HeroSection2() {
               <Button 
                 asChild 
                 size="lg" 
-                className="text-base px-8 py-6 h-auto bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5"
+                className="text-base px-8 py-6 h-auto bg-primary hover:bg-primary/90 shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300"
               >
-                <Link href="/contact">
+                <Link href="/contact" className="group/btn">
                   Get Started
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
                 </Link>
               </Button>
               <Button 
@@ -155,9 +148,9 @@ export function HeroSection2() {
                 asChild 
                 className="text-base px-8 py-6 h-auto border-2 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:-translate-y-0.5"
               >
-                <Link href="/#platform">
+                <Link href="/#platform" className="group/btn">
                   Explore Platform
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
                 </Link>
               </Button>
             </div>
@@ -177,154 +170,181 @@ export function HeroSection2() {
 
           {/* Right Column - Enhanced Visual with Better Design */}
           <div className="w-full flex-1 relative lg:max-w-2xl">
-            {/* Enhanced Smooth Staircase Animation - Positioned at Top Right */}
+            {/* Data Annotation Workflow Animation - Positioned at Top Right */}
             <div className="absolute top-4 right-0 z-30 hidden lg:block" style={{ width: '500px', height: '260px', pointerEvents: 'none' }}>
               <svg 
                 width="100%" 
                 height="100%" 
-                viewBox="0 100 520 240" 
+                viewBox="0 0 500 260" 
                 className="absolute inset-0"
                 style={{ overflow: 'visible' }}
                 preserveAspectRatio="xMidYMin meet"
               >
                 <defs>
-                  {/* Enhanced Gradient */}
-                  <linearGradient id="stairGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgb(251, 146, 60)" stopOpacity="1" />
-                    <stop offset="33%" stopColor="rgb(239, 68, 68)" stopOpacity="1" />
-                    <stop offset="66%" stopColor="rgb(168, 85, 247)" stopOpacity="1" />
-                    <stop offset="100%" stopColor="rgb(59, 130, 246)" stopOpacity="1" />
+                  {/* Subtle Gradient for Data Flow */}
+                  <linearGradient id="dataFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="rgb(59, 130, 246)" stopOpacity="0.6" />
+                    <stop offset="50%" stopColor="rgb(99, 102, 241)" stopOpacity="0.5" />
+                    <stop offset="100%" stopColor="rgb(139, 92, 246)" stopOpacity="0.4" />
                   </linearGradient>
                   
-                  {/* Glow Filter */}
-                  <filter id="pathGlow">
-                    <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+                  {/* Subtle Glow Filter */}
+                  <filter id="subtleGlow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                     <feMerge>
                       <feMergeNode in="coloredBlur"/>
                       <feMergeNode in="SourceGraphic"/>
                     </feMerge>
                   </filter>
-                  
-                  {/* Animated Gradient for Flow Effect */}
-                  <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgb(251, 146, 60)" stopOpacity="0.6" />
-                    <stop offset="33%" stopColor="rgb(239, 68, 68)" stopOpacity="0.5" />
-                    <stop offset="66%" stopColor="rgb(168, 85, 247)" stopOpacity="0.4" />
-                    <stop offset="100%" stopColor="rgb(59, 130, 246)" stopOpacity="0.3" />
-                  </linearGradient>
                 </defs>
                 
-                {/* Main Staircase Path with Smooth Animation */}
+                {/* Data Pipeline Flow - Horizontal flow representing annotation workflow */}
                 <path
-                  d="M 40 340 L 180 340 L 180 260 L 280 260 L 280 180 L 380 180 L 380 100 L 480 100"
-                  stroke="url(#stairGradient)"
-                  strokeWidth="24"
+                  d="M 40 130 L 200 130 L 300 130 L 460 130"
+                  stroke="url(#dataFlowGradient)"
+                  strokeWidth="3"
                   strokeLinecap="round"
-                  strokeLinejoin="round"
                   fill="none"
-                  opacity="1"
-                  style={{
-                    filter: 'drop-shadow(0 4px 12px rgba(251, 146, 60, 0.4))',
-                  }}
-                  className="stair-path"
-                />
+                  opacity="0.4"
+                  strokeDasharray="8 4"
+                >
+                  <animate
+                    attributeName="stroke-dashoffset"
+                    values="0;12"
+                    dur="2s"
+                    repeatCount="indefinite"
+                  />
+                </path>
                 
-                {/* Secondary Glow Path for Depth */}
-                <path
-                  d="M 40 340 L 180 340 L 180 260 L 280 260 L 280 180 L 380 180 L 380 100 L 480 100"
-                  stroke="url(#flowGradient)"
-                  strokeWidth="32"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                  opacity="0.3"
-                  style={{
-                    filter: 'blur(8px)',
-                  }}
-                  className="stair-glow"
-                />
-                
-                {/* Smooth Flowing Particles */}
-                {[0, 0.2, 0.4, 0.6, 0.8].map((offset, i) => {
-                  const colors = [
-                    'rgb(251, 146, 60)',
-                    'rgb(239, 68, 68)',
-                    'rgb(168, 85, 247)',
-                    'rgb(59, 130, 246)',
-                    'rgb(251, 146, 60)'
-                  ];
-                  return (
+                {/* Annotation Nodes - Representing different stages */}
+                {[
+                  { x: 80, y: 130, label: 'Data' },
+                  { x: 200, y: 130, label: 'Label' },
+                  { x: 300, y: 130, label: 'Review' },
+                  { x: 420, y: 130, label: 'Dataset' }
+                ].map((node, i) => (
+                  <g key={i}>
+                    {/* Node Circle */}
                     <circle
-                      key={i}
-                      r="10"
-                      fill={colors[i]}
-                      opacity="0.95"
-                      style={{
-                        filter: `drop-shadow(0 0 14px ${colors[i]})`,
-                      }}
+                      cx={node.x}
+                      cy={node.y}
+                      r="12"
+                      fill="rgb(59, 130, 246)"
+                      opacity="0.3"
+                      filter="url(#subtleGlow)"
                     >
-                      <animateMotion
-                        dur="3.5s"
-                        repeatCount="indefinite"
-                        calcMode="linear"
-                        path="M 40 340 L 180 340 L 180 260 L 280 260 L 280 180 L 380 180 L 380 100 L 480 100"
-                        begin={`${i * 0.7}s`}
-                      />
-                      <animate
-                        attributeName="r"
-                        values="8;12;8"
-                        dur="1.8s"
-                        repeatCount="indefinite"
-                        begin={`${i * 0.3}s`}
-                      />
                       <animate
                         attributeName="opacity"
-                        values="0.8;1;0.8"
-                        dur="1.8s"
+                        values="0.3;0.5;0.3"
+                        dur="2s"
                         repeatCount="indefinite"
                         begin={`${i * 0.3}s`}
                       />
                     </circle>
-                  );
-                })}
+                    {/* Inner dot */}
+                    <circle
+                      cx={node.x}
+                      cy={node.y}
+                      r="4"
+                      fill="rgb(59, 130, 246)"
+                      opacity="0.6"
+                    />
+                  </g>
+                ))}
                 
-                {/* Additional Floating Particles for Sparkle Effect */}
-                {[0.1, 0.3, 0.5, 0.7, 0.9].map((offset, i) => (
+                {/* Data Points Flowing Through Pipeline */}
+                {[0, 0.25, 0.5, 0.75].map((offset, i) => (
                   <circle
-                    key={`sparkle-${i}`}
-                    r="5"
-                    fill="white"
-                    opacity="0.7"
+                    key={i}
+                    r="6"
+                    fill="rgb(59, 130, 246)"
+                    opacity="0.5"
                   >
                     <animateMotion
-                      dur="5s"
+                      dur="3s"
                       repeatCount="indefinite"
                       calcMode="linear"
-                      path="M 40 340 L 180 340 L 180 260 L 280 260 L 280 180 L 380 180 L 380 100 L 480 100"
-                      begin={`${i * 1}s`}
+                      path="M 40 130 L 460 130"
+                      begin={`${i * 0.75}s`}
                     />
                     <animate
                       attributeName="opacity"
-                      values="0;0.9;0"
-                      dur="2s"
+                      values="0.3;0.6;0.3"
+                      dur="1.5s"
                       repeatCount="indefinite"
-                      begin={`${i * 0.4}s`}
-                    />
-                    <animate
-                      attributeName="r"
-                      values="4;7;4"
-                      dur="2s"
-                      repeatCount="indefinite"
-                      begin={`${i * 0.4}s`}
+                      begin={`${i * 0.3}s`}
                     />
                   </circle>
                 ))}
+                
+                {/* Label Tags Being Applied - Vertical movement */}
+                {[0, 0.5, 1].map((offset, i) => (
+                  <g key={`tag-${i}`}>
+                    <rect
+                      x={180 + i * 40}
+                      y={80}
+                      width="24"
+                      height="16"
+                      rx="3"
+                      fill="rgb(99, 102, 241)"
+                      opacity="0.4"
+                    >
+                      <animate
+                        attributeName="y"
+                        values="80;110;80"
+                        dur="2s"
+                        repeatCount="indefinite"
+                        begin={`${i * 0.4}s`}
+                      />
+                      <animate
+                        attributeName="opacity"
+                        values="0.2;0.5;0.2"
+                        dur="2s"
+                        repeatCount="indefinite"
+                        begin={`${i * 0.4}s`}
+                      />
+                    </rect>
+                  </g>
+                ))}
+                
+                {/* Quality Check Indicators */}
+                <g>
+                  <circle
+                    cx={300}
+                    cy={100}
+                    r="8"
+                    fill="rgb(34, 197, 94)"
+                    opacity="0.3"
+                  >
+                    <animate
+                      attributeName="opacity"
+                      values="0.2;0.4;0.2"
+                      dur="2.5s"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                  <path
+                    d="M 295 100 L 298 103 L 305 96"
+                    stroke="rgb(34, 197, 94)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                    opacity="0.5"
+                  >
+                    <animate
+                      attributeName="opacity"
+                      values="0.3;0.6;0.3"
+                      dur="2.5s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                </g>
               </svg>
               
-              {/* Enhanced Glow Effects with Smooth Animation */}
-              <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-orange-500/30 via-red-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
-              <div className="absolute -bottom-24 -left-24 w-[600px] h-48 bg-gradient-to-r from-orange-500/20 via-red-500/15 to-blue-500/20 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
-              <div className="absolute top-1/2 -right-12 w-64 h-64 bg-gradient-to-br from-blue-500/15 to-purple-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
+              {/* Subtle Background Glow Effects */}
+              <div className="absolute -top-20 -right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+              <div className="absolute -bottom-24 -left-24 w-[600px] h-48 bg-indigo-500/5 rounded-full blur-2xl" />
             </div>
             
             {/* Main Image Container with Enhanced Effects - Positioned below animation */}
@@ -389,10 +409,9 @@ export function HeroSection2() {
               </AspectRatio>
             </div>
             
-            {/* Enhanced Floating Decorative Elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-primary/20 to-blue-500/10 rounded-3xl blur-2xl animate-pulse" />
-            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-tr from-purple-500/15 to-indigo-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-            <div className="absolute top-1/2 -right-12 w-24 h-24 bg-primary/10 rounded-full blur-xl" />
+            {/* Subtle Floating Decorative Elements */}
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/3 rounded-3xl blur-2xl" />
+            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-indigo-500/3 rounded-full blur-3xl" />
             
             {/* Quick Setup Process and Efficiency Badge - Positioned After Image */}
             <div className="flex flex-col gap-4 mt-8 lg:flex-row lg:items-start lg:justify-end">

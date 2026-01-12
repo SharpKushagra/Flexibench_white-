@@ -104,6 +104,40 @@
   --sidebar-ring: oklch(0.929 0.013 255.508);
 }
 
+.dark {
+  --background: oklch(0.15 0.02 267.935);
+  --foreground: oklch(0.95 0.01 267.935);
+  --card: oklch(0.18 0.02 267.935);
+  --card-foreground: oklch(0.95 0.01 267.935);
+  --popover: oklch(0.18 0.02 267.935);
+  --popover-foreground: oklch(0.95 0.01 267.935);
+  --primary: oklch(0.677 0.203 40.381);
+  --primary-foreground: oklch(0.15 0.02 267.935);
+  --secondary: oklch(0.25 0.02 267.935);
+  --secondary-foreground: oklch(0.95 0.01 267.935);
+  --muted: oklch(0.22 0.02 267.935);
+  --muted-foreground: oklch(0.65 0.02 267.935);
+  --accent: oklch(0.25 0.02 267.935);
+  --accent-foreground: oklch(0.95 0.01 267.935);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.3 0.02 267.935);
+  --input: oklch(0.3 0.02 267.935);
+  --ring: oklch(0.677 0.203 40.381 / 0.3);
+  --chart-1: oklch(0.677 0.203 40.381);
+  --chart-2: oklch(0.677 0.157 35.096);
+  --chart-3: oklch(0.379 0.044 226.154);
+  --chart-4: oklch(0.833 0.119 88.346);
+  --chart-5: oklch(0.784 0.126 58.996);
+  --sidebar: oklch(0.18 0.02 267.935);
+  --sidebar-foreground: oklch(0.95 0.01 267.935);
+  --sidebar-primary: oklch(0.95 0.01 267.935);
+  --sidebar-primary-foreground: oklch(0.15 0.02 267.935);
+  --sidebar-accent: oklch(0.25 0.02 267.935);
+  --sidebar-accent-foreground: oklch(0.95 0.01 267.935);
+  --sidebar-border: oklch(0.3 0.02 267.935);
+  --sidebar-ring: oklch(0.3 0.02 267.935);
+}
+
 @theme {
   --breakpoint-xl: 80rem;
   --breakpoint-2xl: 80rem;
@@ -227,14 +261,12 @@
   }
 }
 
-@keyframes stairFloat {
+@keyframes dataFlow {
   0%, 100% {
-    transform: translateY(0px) translateX(0px);
-    opacity: 0.85;
+    opacity: 0.4;
   }
   50% {
-    transform: translateY(-8px) translateX(2px);
-    opacity: 1;
+    opacity: 0.6;
   }
 }
 
@@ -256,8 +288,8 @@
   }
 }
 
-.animate-stair-float {
-  animation: stairFloat 2s ease-in-out infinite;
+.animate-data-flow {
+  animation: dataFlow 3s ease-in-out infinite;
 }
 
 .animate-path-draw {
@@ -289,10 +321,10 @@
 
 @keyframes glowPulse {
   0%, 100% {
-    opacity: 0.2;
+    opacity: 0.05;
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.1;
   }
 }
 
@@ -373,4 +405,100 @@
 
 .animate-shimmer {
   animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Subtle Animation Keyframes */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.1);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInSubtle {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle Animation Classes */
+.animate-gentle-float {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 3s ease-in-out infinite;
+}
+
+.animate-subtle-glow {
+  animation: subtleGlow 3s ease-in-out infinite;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.6s ease-out forwards;
+}
+
+.animate-slide-in-subtle {
+  animation: slideInSubtle 0.5s ease-out forwards;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Enhanced hover states */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
 }

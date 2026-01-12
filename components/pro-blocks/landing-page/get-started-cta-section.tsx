@@ -16,9 +16,9 @@ export function GetStartedCtaSection() {
     >
       {/* Enhanced Decorative Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }} />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s', animationDuration: '5s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/3 rounded-full blur-3xl" />
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
           backgroundSize: '48px 48px'
@@ -38,7 +38,7 @@ export function GetStartedCtaSection() {
             <Tagline>Get Started</Tagline>
             <h2
               id="get-started-section-title"
-              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white"
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-white"
             >
               Start Building{" "}
               <span className="text-primary relative">

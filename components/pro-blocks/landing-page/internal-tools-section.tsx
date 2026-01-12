@@ -6,6 +6,7 @@ import { internalTools } from "@/lib/flexibench-content";
 import { Workflow, Mic, Users, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const iconMap: Record<string, typeof Workflow> = {
   Workflow,
@@ -14,13 +15,15 @@ const iconMap: Record<string, typeof Workflow> = {
 };
 
 export function InternalToolsSection() {
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
+
   return (
     <section className="relative bg-gradient-to-br from-red-50 via-rose-50 to-pink-50 dark:from-red-950 dark:via-rose-950 dark:to-pink-950 section-padding-y border-b overflow-hidden">
       {/* Enhanced Decorative Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-red-400/15 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-rose-400/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }} />
-        <div className="absolute inset-0 bg-gradient-to-tr from-red-500/5 via-transparent to-rose-500/5" />
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-red-400/4 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-rose-400/4 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-red-500/2 via-transparent to-rose-500/2" />
         {/* Subtle Pattern */}
         <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
@@ -28,11 +31,11 @@ export function InternalToolsSection() {
         }} />
       </div>
 
-      <div className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
+      <div ref={sectionRef} className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
         {/* Section Title */}
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center gap-6 opacity-0 animate-fade-in-up">
+        <div className={`mx-auto flex max-w-3xl flex-col items-center text-center gap-6 transition-all duration-700 ${isVisible ? 'opacity-100 animate-slide-in-subtle' : 'opacity-0'}`}>
           <Tagline>Ecosystem</Tagline>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
             Extend Annotation from{" "}
             <span className="text-primary">Tasks</span> to{" "}
             <span className="text-primary">Strategy</span>
@@ -46,16 +49,16 @@ export function InternalToolsSection() {
         {/* Enhanced 1-2 Grid Layout */}
         <div className="grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-3">
           {/* Wide Card - DataBench with Visual */}
-          <Card className="group relative bg-gradient-to-br from-secondary/80 via-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-10 shadow-xl hover:shadow-2xl transition-all duration-300 lg:col-span-2 hover:scale-[1.01] hover:border-primary/30 opacity-0 animate-fade-in-left" style={{ animationDelay: '100ms' }}>
+          <Card className={`group relative bg-gradient-to-br from-secondary/80 via-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-10 shadow-xl hover:shadow-2xl transition-all duration-500 lg:col-span-2 hover:scale-[1.01] hover:border-primary/30 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '100ms' }}>
             {/* Decorative Background */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-primary/10 transition-colors" />
             
             <CardContent className="relative flex flex-col gap-8 p-0">
               <div className="flex items-start gap-6">
-                <div className="bg-gradient-to-br from-primary/30 to-primary/10 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-lg group-hover:scale-110 transition-transform">
+                <div className="bg-gradient-to-br from-primary/30 to-primary/10 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   {(() => {
                     const IconComponent = iconMap[internalTools[0].icon];
-                    return IconComponent ? <IconComponent className="text-primary h-10 w-10" /> : null;
+                    return IconComponent ? <IconComponent className="text-primary h-10 w-10 group-hover:rotate-6 transition-transform duration-300" /> : null;
                   })()}
                 </div>
                 <div className="flex-1">
@@ -160,7 +163,7 @@ export function InternalToolsSection() {
               </CardContent>
             </Card>
 
-            <Card className="group relative bg-gradient-to-br from-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex-1 hover:scale-[1.02] hover:-translate-y-1 opacity-0 animate-fade-in-right" style={{ animationDelay: '300ms' }}>
+            <Card className={`group relative bg-gradient-to-br from-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex-1 hover:scale-[1.02] hover:-translate-y-1 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '300ms' }}>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -ml-16 -mb-16" />
               <CardContent className="relative flex flex-col gap-6 p-0">
                 <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-primary/20 shadow-md">

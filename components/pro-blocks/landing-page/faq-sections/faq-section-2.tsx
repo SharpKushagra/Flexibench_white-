@@ -8,8 +8,11 @@ import {
 } from "@/components/ui/accordion";
 import Link from "next/link";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export function FaqSection2() {
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
+
   return (
     <section
       className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-blue-950 dark:to-indigo-950 section-padding-y border-b overflow-hidden"
@@ -25,10 +28,10 @@ export function FaqSection2() {
           backgroundSize: '40px 40px'
         }} />
       </div>
-      <div className="container-padding-x container mx-auto relative z-10">
+      <div ref={sectionRef} className="container-padding-x container mx-auto relative z-10">
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
           {/* Left Column */}
-          <div className="section-title-gap-lg flex flex-1 flex-col">
+          <div className={`section-title-gap-lg flex flex-1 flex-col transition-all duration-700 ${isVisible ? 'opacity-100 animate-slide-in-subtle' : 'opacity-0'}`}>
             {/* Category Tag */}
             <Tagline>FAQ</Tagline>
             {/* Main Title */}
@@ -39,14 +42,14 @@ export function FaqSection2() {
             <p className="text-muted-foreground">
               Find answers to common questions about our annotation platform, capabilities, and how it
               can help your team. Can&apos;t find what you&apos;re looking for?{" "}
-              <Link href="/contact" className="text-primary underline">
+              <Link href="/contact" className="text-primary underline hover:text-primary/80 transition-colors">
                 Contact us.
               </Link>
             </p>
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-1 flex-col gap-8">
+          <div className={`flex flex-1 flex-col gap-8 transition-all duration-700 ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '200ms' }}>
               {/* General FAQ Section */}
               <div className="flex flex-col gap-2">
                 {/* Section Title */}

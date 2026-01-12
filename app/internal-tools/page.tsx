@@ -24,15 +24,15 @@ export default function InternalToolsPage() {
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '48px 48px'
         }} />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
         
         <div className="container-padding-x container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <div className="flex-1 flex flex-col gap-8 text-white">
               <div className="section-title-gap-lg flex flex-col">
                 <Tagline variant="white" className="mb-4">Flexibench Ecosystem</Tagline>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white">
                   Extend Annotation from{" "}
                   <span className="relative inline-block">
                     Tasks

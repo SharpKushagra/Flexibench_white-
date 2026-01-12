@@ -67,8 +67,8 @@ export default function CapabilitiesPage() {
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '48px 48px'
         }} />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
         
         <div className="container-padding-x container mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -76,7 +76,7 @@ export default function CapabilitiesPage() {
             <div className="flex-1 flex flex-col gap-8 text-white">
               <div className="section-title-gap-lg flex flex-col">
                 <Tagline variant="white" className="mb-4">Capabilities</Tagline>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white">
                   Multimodal annotation capabilities built for{" "}
                   <span className="relative inline-block">
                     real-world
@@ -138,7 +138,7 @@ export default function CapabilitiesPage() {
                 <div className="flex-1 flex flex-col gap-8 text-white">
                   <div className="section-title-gap-lg flex flex-col">
                     <Tagline variant="white" className="mb-4">{capability.type} Annotation</Tagline>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-white">
                       {capability.type} Annotation for{" "}
                       <span className="relative inline-block">
                         {capability.type === "Text" ? "Language" : capability.type === "Image" ? "Vision" : capability.type === "Video" ? "Temporal" : "Audio"}
@@ -238,7 +238,7 @@ export default function CapabilitiesPage() {
                         <div className="bg-white/20 backdrop-blur-sm flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-white/30 shadow-xl">
                           <IconComponent className="text-white h-8 w-8" />
                         </div>
-                        <h3 className="text-white text-3xl md:text-4xl font-bold">Why {capability.type} Annotation Matters</h3>
+                        <h3 className="text-white text-2xl md:text-3xl font-semibold">Why {capability.type} Annotation Matters</h3>
                       </div>
                       <p className="text-white/90 text-lg md:text-xl leading-relaxed">
                         {capability.whyItMatters}

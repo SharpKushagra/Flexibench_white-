@@ -13,6 +13,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const MENU_ITEMS = [
   { 
@@ -103,8 +104,9 @@ export function LpNavbar1() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden w-full flex-row justify-end gap-5 md:flex md:items-center">
+        <div className="hidden w-full flex-row justify-end gap-3 md:flex md:items-center">
           <NavMenuItems />
+          <ThemeToggle />
           <Link href="/contact">
             <Button>Get Started</Button>
           </Link>
@@ -114,6 +116,10 @@ export function LpNavbar1() {
         {isMenuOpen && (
           <div className="flex w-full flex-col justify-end gap-5 pb-2.5 md:hidden">
             <NavMenuItems />
+            <div className="flex items-center gap-3">
+              <div className="flex-1" />
+              <ThemeToggle />
+            </div>
             <Link href="/contact">
               <Button className="w-full">Get Started</Button>
             </Link>

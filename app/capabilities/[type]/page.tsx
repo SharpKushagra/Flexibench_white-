@@ -72,7 +72,7 @@ export default function CapabilityTypePage({
             <div className="flex-1 flex flex-col gap-8 text-white">
               <div className="section-title-gap-lg flex flex-col">
                 <Tagline variant="white" className="mb-4">{capability.type} Annotation</Tagline>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white">
                   {capability.type} Annotation for{" "}
                   <span className="relative inline-block">
                     {capability.type === "Text" ? "Language" : capability.type === "Image" ? "Vision" : capability.type === "Video" ? "Temporal" : "Audio"}

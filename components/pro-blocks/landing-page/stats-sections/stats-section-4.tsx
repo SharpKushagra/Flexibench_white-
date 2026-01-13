@@ -54,7 +54,7 @@ export function StatsSection4() {
 
       <div ref={sectionRef} className="container-padding-x container mx-auto relative z-10">
         <div className="flex flex-col gap-12 md:gap-16">
-          <div className={`mx-auto flex max-w-3xl flex-col items-center text-center gap-6 transition-all duration-700 ${isVisible ? 'opacity-100 animate-slide-in-subtle' : 'opacity-0'}`}>
+          <div className={`mx-auto flex max-w-3xl flex-col items-center text-center gap-6 transition-all duration-[3000ms] ease-out ${isVisible ? 'opacity-100 animate-slide-in-subtle' : 'opacity-0'}`}>
             <Tagline>Impact</Tagline>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-white">
               Trusted by Data-Driven Teams{" "}
@@ -67,7 +67,7 @@ export function StatsSection4() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
-            <Card className={`group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 hover:border-primary/30 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '0ms' }}>
+            <Card className={`group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:scale-[1.02] hover:-translate-y-1 hover:border-primary/30 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '0ms' }}>
               <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl -mr-12 -mt-12" />
               <CardContent className="relative flex flex-col gap-4 p-0">
                 <div className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 rounded-xl p-3 w-fit">
@@ -87,7 +87,7 @@ export function StatsSection4() {
               </CardContent>
             </Card>
 
-            <Card className={`group relative bg-gradient-to-br from-secondary/40 via-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 hover:border-primary/30 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '200ms' }}>
+            <Card className={`group relative bg-gradient-to-br from-secondary/40 via-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:scale-[1.02] hover:-translate-y-1 hover:border-primary/30 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '200ms' }}>
               <div className="absolute top-0 right-0 w-24 h-24 bg-green-500/10 rounded-full blur-2xl -mr-12 -mt-12" />
               <CardContent className="relative flex flex-col gap-4 p-0">
                 <div className="bg-gradient-to-br from-green-500/20 to-green-500/5 rounded-xl p-3 w-fit">
@@ -108,7 +108,7 @@ export function StatsSection4() {
               </CardContent>
             </Card>
 
-            <Card className={`group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 hover:border-primary/30 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '400ms' }}>
+            <Card className={`group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:scale-[1.02] hover:-translate-y-1 hover:border-primary/30 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '400ms' }}>
               <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl -mr-12 -mt-12" />
               <CardContent className="relative flex flex-col gap-4 p-0">
                 <div className="bg-gradient-to-br from-purple-500/20 to-purple-500/5 rounded-xl p-3 w-fit">

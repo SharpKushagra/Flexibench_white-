@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { blurPlaceholders } from "@/lib/image-utils";
 
 const iconMap: Record<string, typeof FileText> = {
   FileText,
@@ -63,7 +64,7 @@ export default function CapabilityTypePage({
       </div>
 
       {/* Enhanced Hero Section with Image */}
-      <section className="relative bg-gradient-to-br from-purple-950 via-indigo-900 to-blue-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
+      <section className="relative bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '48px 48px'
@@ -105,9 +106,11 @@ export default function CapabilityTypePage({
                     alt={`${capability.type} annotation interface and workflows`}
                     fill
                     priority
+                    placeholder="blur"
+                    blurDataURL={blurPlaceholders.purple}
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-indigo-900/30 to-transparent" />
                 </AspectRatio>
               </div>
             </div>
@@ -156,6 +159,9 @@ export default function CapabilityTypePage({
                     src={capabilityImages[capability.type] || capabilityImages.Text}
                     alt="Core capabilities visualization"
                     fill
+                    placeholder="blur"
+                    blurDataURL={blurPlaceholders.default}
+                    loading="lazy"
                     className="object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
@@ -175,6 +181,9 @@ export default function CapabilityTypePage({
                     src={capabilityImages[capability.type] || capabilityImages.Text}
                     alt="Client benefits visualization"
                     fill
+                    placeholder="blur"
+                    blurDataURL={blurPlaceholders.default}
+                    loading="lazy"
                     className="object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
@@ -197,6 +206,9 @@ export default function CapabilityTypePage({
                   src={capabilityImages[capability.type] || capabilityImages.Text}
                   alt="Why it matters visualization"
                   fill
+                  placeholder="blur"
+                  blurDataURL={blurPlaceholders.default}
+                  loading="lazy"
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent lg:bg-gradient-to-l" />

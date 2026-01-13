@@ -17,8 +17,8 @@ export function GetStartedCtaSection() {
       {/* Enhanced Decorative Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/3 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-400/5 rounded-full blur-3xl" />
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
           backgroundSize: '48px 48px'
@@ -57,10 +57,10 @@ export function GetStartedCtaSection() {
 
           {/* Enhanced Two-Column Side-by-Side CTA Cards */}
           <div className="flex w-full flex-col items-center gap-6 md:max-w-4xl md:flex-row md:gap-8">
-            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-10 shadow-xl hover:shadow-2xl transition-all duration-300 flex-1 w-full hover:scale-105 hover:-translate-y-2 hover:border-primary/30">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl -mr-16 -mt-16" />
+            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-10 shadow-xl hover:shadow-2xl transition-all duration-[2500ms] ease-out flex-1 w-full hover:scale-105 hover:-translate-y-2 hover:border-primary/30">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-400/10 rounded-full blur-2xl -mr-16 -mt-16" />
               <CardContent className="relative flex flex-col gap-8 p-0">
-                <div className="bg-gradient-to-br from-blue-500/10 to-blue-500/5 rounded-xl p-4 w-fit border border-blue-500/20">
+                <div className="bg-gradient-to-br from-primary/15 to-orange-400/10 rounded-xl p-4 w-fit border border-primary/25">
                   <h3 className="text-foreground text-2xl font-bold mb-2">
                     Talk to Sales
                   </h3>
@@ -77,7 +77,7 @@ export function GetStartedCtaSection() {
               </CardContent>
             </Card>
 
-            <Card className="group relative bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/40 rounded-2xl border-2 border-primary/30 p-10 shadow-2xl hover:shadow-3xl transition-all duration-300 flex-1 w-full hover:scale-105 hover:-translate-y-2">
+            <Card className="group relative bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/40 rounded-2xl border-2 border-primary/30 p-10 shadow-2xl hover:shadow-3xl transition-all duration-[2500ms] ease-out flex-1 w-full hover:scale-105 hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl" />
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl -mr-16 -mt-16" />
               <CardContent className="relative flex flex-col gap-8 p-0">

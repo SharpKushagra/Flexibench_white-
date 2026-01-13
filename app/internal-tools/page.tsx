@@ -25,7 +25,7 @@ export default function InternalToolsPage() {
       </div>
 
       {/* Enhanced Hero Section */}
-      <section className="relative bg-gradient-to-br from-amber-950 via-orange-900 to-red-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
+      <section className="relative bg-gradient-to-br from-amber-900 via-orange-800 to-red-800 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '48px 48px'
@@ -63,9 +63,11 @@ export default function InternalToolsPage() {
                     alt="Flexibench ecosystem tools: DataBench, Phonex, and FlexiPod workflow orchestration"
                     fill
                     priority
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    placeholder="blur"
+                    blurDataURL={blurPlaceholders.primary}
+                    className="object-cover  transition-transform duration-[3000ms] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-amber-950/80 via-amber-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-900/70 via-amber-900/30 to-transparent" />
                 </AspectRatio>
               </div>
             </div>
@@ -91,7 +93,7 @@ export default function InternalToolsPage() {
                   src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&h=900&fit=crop&q=80"
                   alt="Phonex voice annotation engine showing audio waveforms and speech recognition interface"
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover  transition-transform duration-[3000ms] ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               </AspectRatio>
@@ -111,8 +113,8 @@ export default function InternalToolsPage() {
               </p>
             </div>
 
-            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-primary/30">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:border-primary/30">
+              <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out" />
               <CardContent className="relative flex flex-col gap-6 p-0">
                 <div>
                   <h3 className="text-foreground text-xl font-bold mb-3 flex items-center gap-3">
@@ -160,7 +162,7 @@ export default function InternalToolsPage() {
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=900&fit=crop&q=80"
                   alt="FlexiPod cross-functional team collaboration showing annotation engineers, data scientists, and domain specialists"
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover  transition-transform duration-[3000ms] ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               </AspectRatio>
@@ -181,8 +183,8 @@ export default function InternalToolsPage() {
             </div>
 
             <div className="grid grid-cols-1 gap-6">
-              <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-primary/30">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:border-primary/30">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out" />
                 <CardContent className="relative flex flex-col gap-4 p-0">
                   <h3 className="text-foreground text-xl font-bold flex items-center gap-3">
                     <div className="bg-primary/20 flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20">
@@ -194,8 +196,8 @@ export default function InternalToolsPage() {
                 </CardContent>
               </Card>
 
-              <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-primary/30">
-                <div className="absolute top-0 left-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -ml-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Card className="group relative bg-gradient-to-br from-background to-secondary/40 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:border-primary/30">
+                <div className="absolute top-0 left-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl -ml-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out" />
                 <CardContent className="relative flex flex-col gap-4 p-0">
                   <h3 className="text-foreground text-xl font-bold mb-3">Pod Outcomes Include</h3>
                   <ul className="list-disc list-inside text-muted-foreground space-y-2">

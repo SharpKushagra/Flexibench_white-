@@ -64,11 +64,11 @@ export function UseCasesPreviewSection() {
             return (
               <Card
                 key={useCase.id}
-                className={`group relative bg-gradient-to-br from-background to-secondary/30 gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 ${animations[index % animations.length]}`}
+                className={`group relative bg-gradient-to-br from-background to-secondary/30 gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 ${animations[index % animations.length]}`}
                 style={{ animationDelay: `${animationDelay}ms` }}
               >
                 {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${colorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${colorClass} opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out`} />
                 
                 {/* Image Section */}
                 <div className="relative mb-6 h-40 rounded-xl border border-border/30 overflow-hidden group/image">
@@ -82,7 +82,7 @@ export function UseCasesPreviewSection() {
                     }
                     alt={`${useCase.industry} use case: ${useCase.title} showing ${useCase.modality.toLowerCase()} annotation workflow`}
                     fill
-                    className="object-cover group-hover/image:scale-110 transition-transform duration-500"
+                    className="object-cover group-hover/image:scale-110 transition-transform duration-[2500ms] ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-transparent" />
                   <div className="absolute top-3 left-3">

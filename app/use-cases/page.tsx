@@ -13,6 +13,7 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Link from "next/link";
+import { blurPlaceholders } from "@/lib/image-utils";
 
 const modalityIcons: Record<string, typeof FileText> = {
   Text: FileText,
@@ -42,80 +43,80 @@ export default function UseCasesPage() {
     });
   }, [selectedIndustry, selectedModality, searchQuery]);
 
-  // Unique images for each use case
+  // Unique images for each use case - using local images from public/use-cases folder
   const useCaseImages: Record<number, string> = {
-    1: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop&q=80", // Clinical notes - Medical documents
-    2: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=400&fit=crop&q=80", // Pedestrian tracking - AV Safety (Car/automotive) - SWAPPED
-    3: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=400&fit=crop&q=80", // Telehealth - Doctor with laptop
-    4: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&h=400&fit=crop&q=80", // Radiology - Brain scan - SWAPPED
-    5: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=400&fit=crop&q=80",
-    6: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=400&fit=crop&q=80",
-    7: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&h=400&fit=crop&q=80",
-    8: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=400&fit=crop&q=80",
-    9: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=400&fit=crop&q=80",
-    10: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=400&fit=crop&q=80",
-    11: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop&q=80",
-    12: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&h=400&fit=crop&q=80",
-    13: "https://images.unsplash.com/photo-1525921429624-479b6a26d84d?w=800&h=400&fit=crop&q=80",
-    14: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop&q=80",
-    15: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=400&fit=crop&q=80",
-    16: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop&q=80",
-    17: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=400&fit=crop&q=80",
-    18: "https://images.unsplash.com/photo-1605745341112-85968b19335b?w=800&h=400&fit=crop&q=80",
-    19: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=400&fit=crop&q=80",
-    20: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop&q=80",
-    21: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop&q=80",
+    1: "/use-cases/Healthcare2.png", // Clinical notes - Diagnostic Report
+    2: "/use-cases/infrastructure3.jpg", // Pedestrian tracking - AV Safety (Smart vehicle)
+    3: "/use-cases/Healthcare.png", // Telehealth - Training Dashboard
+    4: "/use-cases/Healthcare2.png", // Radiology - Diagnostic Report
+    5: "/use-cases/infrastructure2.png", // Road Sign - Infrastructure monitoring
+    6: "/use-cases/finance3.png", // Product Attribute - Finance dashboard
+    7: "/use-cases/finance2.png", // Shelf Planogram - Finance dashboard
+    8: "/use-cases/Legal.png", // Contract Clause - Legal case
+    9: "/use-cases/legal2.png", // KYC Document - Legal document
+    10: "/use-cases/manufacturing.png", // Solder Joint - Manufacturing dashboard
+    11: "/use-cases/manufacturing2.png", // Worker Safety - Maintenance system
+    12: "/use-cases/Media3.png", // Sports Player - Video analytics
+    13: "/use-cases/media2.png", // Game Chat - AI-Enhanced Video Editing
+    14: "/use-cases/finance.png", // Support Ticket - Finance dashboard (dark)
+    15: "/use-cases/Media.png", // Call Center - Media landing
+    16: "/use-cases/infrastructure.png", // Satellite Crop - Urban Flood Prediction
+    17: "/use-cases/infrastructure2.png", // Surveillance - Infrastructure monitoring
+    18: "/use-cases/manufacturing3.png", // Package Damage - Training Modules
+    19: "/use-cases/manufacturing2.png", // Conveyor Jam - Maintenance system (logistics)
+    20: "/use-cases/finance2.png", // Grounding Signal - Finance dashboard
+    21: "/use-cases/Media.png", // Multilingual Toxicity - Media landing
   };
 
   const industryColors: Record<string, { gradient: string; glow: string; accent: string }> = {
     "Healthcare & Life Sciences": { 
-      gradient: "from-red-500/20 via-rose-500/10 to-pink-500/20", 
-      glow: "from-red-500/30 to-rose-500/20",
+      gradient: "from-red-500/18 via-rose-500/12 to-pink-500/18", 
+      glow: "from-red-500/25 to-rose-500/18",
       accent: "red"
     },
     "Automotive & Mobility": { 
-      gradient: "from-blue-500/20 via-cyan-500/10 to-indigo-500/20", 
-      glow: "from-blue-500/30 to-cyan-500/20",
+      gradient: "from-blue-500/18 via-cyan-500/12 to-indigo-500/18", 
+      glow: "from-blue-500/25 to-cyan-500/18",
       accent: "blue"
     },
     "Retail & E-commerce": { 
-      gradient: "from-purple-500/20 via-violet-500/10 to-fuchsia-500/20", 
-      glow: "from-purple-500/30 to-violet-500/20",
+      gradient: "from-purple-500/18 via-violet-500/12 to-fuchsia-500/18", 
+      glow: "from-purple-500/25 to-violet-500/18",
       accent: "purple"
     },
     "Financial Services": { 
-      gradient: "from-emerald-500/20 via-teal-500/10 to-green-500/20", 
-      glow: "from-emerald-500/30 to-teal-500/20",
+      gradient: "from-emerald-500/18 via-teal-500/12 to-green-500/18", 
+      glow: "from-emerald-500/25 to-teal-500/18",
       accent: "emerald"
     },
     "Manufacturing & Robotics": { 
-      gradient: "from-amber-500/20 via-yellow-500/10 to-orange-500/20", 
-      glow: "from-amber-500/30 to-yellow-500/20",
+      gradient: "from-amber-500/18 via-yellow-500/12 to-orange-500/18", 
+      glow: "from-amber-500/25 to-yellow-500/18",
       accent: "amber"
     },
     "Media, Entertainment & Gaming": { 
-      gradient: "from-pink-500/20 via-rose-500/10 to-fuchsia-500/20", 
-      glow: "from-pink-500/30 to-rose-500/20",
+      gradient: "from-pink-500/18 via-rose-500/12 to-fuchsia-500/18", 
+      glow: "from-pink-500/25 to-rose-500/18",
       accent: "pink"
     },
     "Telecom & Customer Experience": { 
-      gradient: "from-orange-500/20 via-amber-500/10 to-yellow-500/20", 
-      glow: "from-orange-500/30 to-amber-500/20",
+      gradient: "from-orange-500/18 via-amber-500/12 to-yellow-500/18", 
+      glow: "from-orange-500/25 to-amber-500/18",
       accent: "orange"
     },
     "Public Sector & Defense": { 
-      gradient: "from-slate-500/20 via-gray-500/10 to-zinc-500/20", 
-      glow: "from-slate-500/30 to-gray-500/20",
+      gradient: "from-slate-500/18 via-gray-500/12 to-zinc-500/18", 
+      glow: "from-slate-500/25 to-gray-500/18",
       accent: "slate"
     },
     "Logistics & Supply Chain": { 
-      gradient: "from-cyan-500/20 via-teal-500/10 to-blue-500/20", 
-      glow: "from-cyan-500/30 to-teal-500/20",
+      gradient: "from-cyan-500/18 via-teal-500/12 to-blue-500/18", 
+      glow: "from-cyan-500/25 to-teal-500/18",
       accent: "cyan"
     },
     "Cross-Industry": { 
-      gradient: "from-indigo-500/20 via-purple-500/10 to-violet-500/20", 
-      glow: "from-indigo-500/30 to-purple-500/20",
+      gradient: "from-indigo-500/18 via-purple-500/12 to-violet-500/18", 
+      glow: "from-indigo-500/25 to-purple-500/18",
       accent: "indigo"
     },
   };
@@ -130,10 +131,10 @@ export default function UseCasesPage() {
       </div>
       
       {/* Extraordinary Hero Section */}
-      <section className="relative bg-gradient-to-br from-pink-950 via-rose-900 to-red-900 section-padding-y border-b overflow-hidden min-h-[90vh] flex items-center" style={{ paddingTop: '80px' }}>
+      <section className="relative bg-gradient-to-br from-pink-900 via-rose-800 to-red-800 section-padding-y border-b overflow-hidden min-h-[90vh] flex items-center" style={{ paddingTop: '80px' }}>
         {/* Animated Mesh Gradient Background */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-pink-600/8 via-rose-600/6 to-red-600/8" />
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-pink-600/10 via-rose-600/8 to-red-600/10" />
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-orange-600/5 rounded-full blur-3xl" />
         </div>
@@ -179,7 +180,7 @@ export default function UseCasesPage() {
                     <span className="bg-gradient-to-r from-pink-300 via-rose-300 to-red-300 bg-clip-text text-transparent">
                       Annotation
                     </span>
-                    <svg className="absolute -bottom-3 left-0 w-full h-4 text-pink-400/50" viewBox="0 0 400 16" fill="none">
+                    <svg className="absolute -bottom-3 left-0 w-full h-4 text-pink-400/40" viewBox="0 0 400 16" fill="none">
                       <path d="M2 12 C100 4, 200 8, 300 12 C350 14, 380 12, 398 12" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
                     </svg>
                   </span>{" "}
@@ -219,7 +220,7 @@ export default function UseCasesPage() {
             <div className="flex-1 w-full animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/30 group">
                 {/* Animated Border Glow */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-pink-500/10 via-rose-500/10 to-red-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                <div className="absolute -inset-1 bg-gradient-to-r from-pink-500/12 via-rose-500/12 to-red-500/12 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-[3000ms] ease-out -z-10" />
                 
                 <AspectRatio ratio={16 / 10}>
                   <Image
@@ -227,10 +228,12 @@ export default function UseCasesPage() {
                     alt="Use cases across industries showing various annotation workflows"
                     fill
                     priority
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    placeholder="blur"
+                    blurDataURL={blurPlaceholders.pink}
+                    className="object-cover group-hover:scale-[1.02] transition-transform duration-[3500ms] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-pink-950/90 via-pink-950/40 to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/10 via-transparent to-red-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-pink-950/85 via-pink-950/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-pink-500/12 via-transparent to-red-500/12" />
                 </AspectRatio>
               </div>
             </div>
@@ -244,7 +247,7 @@ export default function UseCasesPage() {
           {/* Glassmorphism Filter Bar */}
           <div className="relative bg-background/80 backdrop-blur-xl rounded-3xl border-2 border-border/50 shadow-2xl p-6 md:p-8 animate-fade-in-up">
             {/* Animated Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-[3000ms] ease-out" />
             
             <div className="relative flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
               <div className="relative flex-1">
@@ -293,7 +296,7 @@ export default function UseCasesPage() {
       </section>
 
       {/* Extraordinary Use Cases Grid */}
-      <section className="relative bg-gradient-to-b from-pink-950 via-rose-900 to-red-900 section-padding-y border-b overflow-hidden pt-24">
+      <section className="relative bg-gradient-to-b from-pink-900 via-rose-800 to-red-800 section-padding-y border-b overflow-hidden pt-24">
         {/* Enhanced Animated Background Elements */}
         <div className="absolute inset-0 opacity-20" style={{
           backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
@@ -326,19 +329,19 @@ export default function UseCasesPage() {
                 return (
                   <Card
                     key={useCase.id}
-                    className={`group relative bg-gradient-to-br from-background to-secondary/60 backdrop-blur-sm gap-0 overflow-hidden rounded-3xl border-2 border-border/60 p-0 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-700 hover:scale-[1.03] hover:-translate-y-4 hover:border-primary/60 use-case-card`}
+                    className={`group relative bg-gradient-to-br from-background to-secondary/60 backdrop-blur-sm gap-0 overflow-hidden rounded-3xl border-2 border-border/60 p-0 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-[3000ms] ease-out hover:border-primary/60 use-case-card`}
                     style={{
                       animationDelay: `${animationDelay}ms`,
                       animationFillMode: 'both'
                     }}
                   >
                     {/* Enhanced Animated Background Glow - Always Visible */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-30 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`} />
-                    <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${colors.glow} rounded-full blur-3xl -mr-24 -mt-24 opacity-20 group-hover:opacity-100 transition-opacity duration-700`} />
-                    <div className={`absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr ${colors.glow} rounded-full blur-2xl -ml-20 -mb-20 opacity-20 group-hover:opacity-100 transition-opacity duration-700`} style={{ animationDelay: '0.2s' }} />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-30 group-hover:opacity-100 transition-opacity duration-[3000ms] ease-out rounded-3xl`} />
+                    <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${colors.glow} rounded-full blur-3xl -mr-24 -mt-24 opacity-20 group-hover:opacity-100 transition-opacity duration-[3500ms] ease-out`} />
+                    <div className={`absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr ${colors.glow} rounded-full blur-2xl -ml-20 -mb-20 opacity-20 group-hover:opacity-100 transition-opacity duration-[3500ms] ease-out`} style={{ animationDelay: '0.2s' }} />
                     
                     {/* Animated Border Glow */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500 -z-10" />
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-[3000ms] ease-out -z-10" />
                     
                     {/* Enhanced Image Header with 3D Effect */}
                     <div className="relative h-56 overflow-hidden">
@@ -346,14 +349,17 @@ export default function UseCasesPage() {
                         src={imageUrl}
                         alt={`${useCase.industry} use case: ${useCase.title}`}
                         fill
-                        className="object-cover group-hover:scale-125 transition-transform duration-700"
+                        placeholder="blur"
+                        blurDataURL={blurPlaceholders.default}
+                        loading="lazy"
+                        className="object-cover group-hover:scale-[1.02] transition-transform duration-[3500ms] ease-out"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent" />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-[3000ms] ease-out" />
                       
                       {/* Icon Badge with 3D Transform */}
                       <div className="absolute top-6 left-6">
-                        <div className="bg-background/95 backdrop-blur-md flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-2xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+                        <div className="bg-background/95 backdrop-blur-md flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-2xl transform group-hover:scale-[1.02] group-hover:rotate-2 transition-all duration-[2500ms] ease-out">
                           <IconComponent className="text-primary h-8 w-8" />
                         </div>
                       </div>
@@ -361,27 +367,27 @@ export default function UseCasesPage() {
                       {/* Floating Tags */}
                       <div className="absolute bottom-6 left-6 right-6">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="text-xs font-bold text-white bg-primary/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-primary/30 shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                          <span className="text-xs font-bold text-white bg-primary/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-primary/30 shadow-lg transform transition-transform duration-[2500ms] ease-out">
                             {useCase.industry.split(" ")[0]}
                           </span>
                           <span className="text-xs text-white/60">•</span>
-                          <span className="text-xs font-semibold text-slate-800 dark:text-slate-100 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/30 shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                          <span className="text-xs font-semibold text-slate-800 dark:text-slate-900 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/30 shadow-lg transform transition-transform duration-[2500ms] ease-out">
                             {useCase.modality}
                           </span>
                         </div>
                       </div>
                       
                       {/* Shine Effect on Hover */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[4000ms] ease-out" />
                     </div>
                     
                     <CardContent className="relative flex flex-col gap-5 p-8 bg-gradient-to-b from-transparent to-background/50">
-                      <h3 className="text-foreground text-2xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                      <h3 className="text-foreground text-2xl font-bold leading-tight group-hover:text-primary transition-colors duration-[2500ms] ease-out line-clamp-2">
                         {useCase.title}
                       </h3>
                       
                       <div className="space-y-3">
-                        <div className="p-4 rounded-xl bg-white/95 backdrop-blur-sm border border-border/30 group-hover:border-primary/30 transition-colors shadow-lg">
+                        <div className="p-4 rounded-xl bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm border border-border/30 group-hover:border-primary/30 transition-colors duration-[2500ms] ease-out shadow-lg">
                           <h4 className="text-xs font-bold text-primary mb-2 uppercase tracking-wider flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                             Problem
@@ -390,13 +396,13 @@ export default function UseCasesPage() {
                         </div>
                       </div>
                       
-                      <div className="pt-4 mt-auto border-t border-border/40 group-hover:border-primary/40 transition-colors">
+                      <div className="pt-4 mt-auto border-t border-border/40 group-hover:border-primary/40 transition-colors duration-[2500ms] ease-out">
                         <Link 
                           href={`/use-cases/${useCase.id}`} 
-                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary text-sm font-bold hover:gap-3 transition-all group/link border border-primary/20 hover:border-primary/40"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary text-sm font-bold transition-all duration-[2500ms] ease-out group/link border border-primary/20 hover:border-primary/40"
                         >
                           <span>View Full Case Study</span>
-                          <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                          <ArrowRight className="h-4 w-4 group-hover/link:translate-x-0.5 transition-transform duration-[2500ms] ease-out" />
                         </Link>
                       </div>
                     </CardContent>

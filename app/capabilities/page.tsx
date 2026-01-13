@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { blurPlaceholders } from "@/lib/image-utils";
 
 const iconMap: Record<string, typeof FileText> = {
   FileText,
@@ -51,10 +52,10 @@ const capabilityImages: Record<string, {
 };
 
 const capabilityGradients: Record<string, string> = {
-  Text: "from-blue-950 via-indigo-900 to-purple-900",
-  Image: "from-purple-950 via-pink-900 to-rose-900",
-  Video: "from-orange-950 via-red-900 to-amber-900",
-  Audio: "from-green-950 via-emerald-900 to-teal-900",
+  Text: "from-blue-800 via-indigo-800 to-purple-800",
+  Image: "from-purple-800 via-pink-800 to-rose-800",
+  Video: "from-orange-800 via-red-800 to-amber-800",
+  Audio: "from-green-800 via-emerald-800 to-teal-800",
 };
 
 export default function CapabilitiesPage() {
@@ -67,7 +68,7 @@ export default function CapabilitiesPage() {
       </div>
 
       {/* Enhanced Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-950 via-indigo-900 to-blue-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
+      <section className="relative bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         {/* Animated Background */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
@@ -104,13 +105,15 @@ export default function CapabilitiesPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group">
                 <AspectRatio ratio={16 / 10}>
                   <Image
-                    src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=900&fit=crop&q=80"
+                    src="/use-cases/finance3.png"
                     alt="Multimodal annotation capabilities showing text, image, video, and audio annotation interfaces"
                     fill
                     priority
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    placeholder="blur"
+                    blurDataURL={blurPlaceholders.purple}
+                    className="object-cover  transition-transform duration-[3000ms] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-purple-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-indigo-900/30 to-transparent" />
                 </AspectRatio>
               </div>
             </div>
@@ -169,7 +172,9 @@ export default function CapabilitiesPage() {
                         alt={`${capability.type} annotation interface and workflows`}
                         fill
                         priority={index === 0}
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        placeholder="blur"
+                        blurDataURL={blurPlaceholders.purple}
+                        className="object-cover  transition-transform duration-[3000ms] ease-out"
                       />
                       <div className={`absolute inset-0 bg-gradient-to-t ${gradient}/80 via-transparent to-transparent`} />
                     </AspectRatio>
@@ -181,8 +186,8 @@ export default function CapabilitiesPage() {
               <div className="mt-20 flex flex-col gap-16">
                 {/* Core Capabilities and What Clients Get - Side by Side */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <Card className="group relative bg-white/10 backdrop-blur-md rounded-2xl border-2 border-white/20 p-8 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:border-white/40 overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <Card className="group relative bg-white/10 backdrop-blur-md rounded-2xl border-2 border-white/20 p-8 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-[2500ms] ease-out hover:scale-105 hover:-translate-y-2 hover:border-white/40 overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out" />
                     <CardContent className="relative flex flex-col gap-6 p-0">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="bg-white/20 backdrop-blur-sm flex h-14 w-14 items-center justify-center rounded-xl border-2 border-white/30 shadow-xl">
@@ -202,7 +207,7 @@ export default function CapabilitiesPage() {
                           src={capabilityImages[capability.type]?.core || capabilityImages.Text.core}
                           alt="Core capabilities visualization"
                           fill
-                          className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                          className="object-cover opacity-80 group-hover:opacity-100  transition-all duration-[2500ms] ease-out"
                           unoptimized
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -210,8 +215,8 @@ export default function CapabilitiesPage() {
                     </CardContent>
                   </Card>
 
-                  <Card className="group relative bg-white/10 backdrop-blur-md rounded-2xl border-2 border-white/20 p-8 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:border-white/40 overflow-hidden">
-                    <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -ml-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <Card className="group relative bg-white/10 backdrop-blur-md rounded-2xl border-2 border-white/20 p-8 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-[2500ms] ease-out hover:scale-105 hover:-translate-y-2 hover:border-white/40 overflow-hidden">
+                    <div className="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -ml-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out" />
                     <CardContent className="relative flex flex-col gap-6 p-0">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="bg-white/20 backdrop-blur-sm flex h-14 w-14 items-center justify-center rounded-xl border-2 border-white/30 shadow-xl">
@@ -227,7 +232,7 @@ export default function CapabilitiesPage() {
                           src={capabilityImages[capability.type]?.clients || capabilityImages.Text.clients}
                           alt="Client benefits visualization"
                           fill
-                          className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                          className="object-cover opacity-80 group-hover:opacity-100  transition-all duration-[2500ms] ease-out"
                           unoptimized
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -237,7 +242,7 @@ export default function CapabilitiesPage() {
                 </div>
 
                 {/* Why It Matters Section - Full Width with Large Image */}
-                <Card className="group relative bg-white/10 backdrop-blur-md rounded-3xl border-2 border-white/20 p-0 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-500 hover:border-white/40 overflow-hidden">
+                <Card className="group relative bg-white/10 backdrop-blur-md rounded-3xl border-2 border-white/20 p-0 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] transition-all duration-[2500ms] ease-out hover:border-white/40 overflow-hidden">
                   <div className="flex flex-col lg:flex-row">
                     <div className="flex-1 p-8 lg:p-12 flex flex-col gap-6">
                       <div className="flex items-center gap-4 mb-4">
@@ -255,7 +260,7 @@ export default function CapabilitiesPage() {
                         src={capabilityImages[capability.type]?.why || capabilityImages.Text.why}
                         alt="Why it matters visualization"
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="object-cover  transition-transform duration-[3000ms] ease-out"
                       />
                       <div className={`absolute inset-0 bg-gradient-to-r ${gradient}/90 via-transparent to-transparent lg:bg-gradient-to-l`} />
                     </div>
@@ -268,7 +273,7 @@ export default function CapabilitiesPage() {
       })}
 
       {/* Platform-Wide Capabilities Section - Redesigned */}
-      <section className="relative bg-gradient-to-br from-slate-50 via-background to-blue-50/30 section-padding-y border-b overflow-hidden">
+      <section className="relative bg-gradient-to-br from-slate-50 via-background to-blue-50/20 section-padding-y border-b overflow-hidden">
         {/* Enhanced Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: `linear-gradient(45deg, transparent 30%, currentColor 50%, transparent 70%), linear-gradient(-45deg, transparent 30%, currentColor 50%, transparent 70%)`,
@@ -302,44 +307,44 @@ export default function CapabilitiesPage() {
                 desc: "Model suggestions speed up human review", 
                 icon: Sparkles, 
                 image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=90",
-                color: "from-purple-500/10 to-purple-500/5",
+                color: "from-purple-500/15 to-purple-500/8",
               },
               { 
                 title: "Configurable Annotator Workflows", 
                 desc: "Tailor interfaces per task", 
                 icon: Layers, 
                 image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=90",
-                color: "from-blue-500/10 to-blue-500/5",
+                color: "from-blue-500/15 to-blue-500/8",
               },
               { 
                 title: "Dynamic Taxonomy Support", 
                 desc: "Reuse ontologies across projects", 
                 icon: CheckCircle, 
                 image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop&q=90",
-                color: "from-green-500/10 to-green-500/5",
+                color: "from-green-500/15 to-green-500/8",
               },
               { 
                 title: "Quality Control and Review Gates", 
                 desc: "Multi-tier validation pipelines", 
                 icon: CheckCircle, 
                 image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop&q=90",
-                color: "from-orange-500/10 to-orange-500/5",
+                color: "from-orange-500/15 to-orange-500/8",
               },
               { 
                 title: "Unified Data Management", 
                 desc: "Consistent datasets for training and deployment", 
                 icon: Layers, 
                 image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop&q=90",
-                color: "from-indigo-500/10 to-indigo-500/5",
+                color: "from-indigo-500/15 to-indigo-500/8",
               },
             ].map((capability, index) => (
               <Card
                 key={index}
-                className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/60 p-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:-translate-y-3 hover:border-primary/40 overflow-hidden"
+                className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/60 p-0 shadow-xl hover:shadow-2xl transition-all duration-[2500ms] ease-out  hover:-translate-y-3 hover:border-primary/40 overflow-hidden"
               >
                 {/* Animated Background Glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${capability.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`} />
-                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl -mr-20 -mt-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className={`absolute inset-0 bg-gradient-to-br ${capability.color} opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out rounded-3xl`} />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl -mr-20 -mt-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[3000ms] ease-out" />
                 
                 {/* Enhanced Image Header */}
                 <div className="relative h-56 overflow-hidden">
@@ -347,12 +352,12 @@ export default function CapabilitiesPage() {
                     src={capability.image}
                     alt={capability.title}
                     fill
-                    className="object-cover group-hover:scale-125 transition-transform duration-1000"
+                    className="object-cover  transition-transform duration-1000"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                   {/* Icon Badge */}
                   <div className="absolute top-5 left-5">
-                    <div className="bg-background/95 backdrop-blur-md rounded-xl p-3 border-2 border-primary/30 shadow-2xl transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <div className="bg-background/95 backdrop-blur-md rounded-xl p-3 border-2 border-primary/30 shadow-2xl transform  group-hover:rotate-6 transition-all duration-[2500ms] ease-out">
                       <capability.icon className="text-primary h-7 w-7" />
                     </div>
                   </div>
@@ -366,7 +371,7 @@ export default function CapabilitiesPage() {
                 
                 <CardContent className="relative flex flex-col gap-5 p-8 bg-background/95">
                   <div className="flex items-start gap-4">
-                    <div className={`bg-gradient-to-br ${capability.color} flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border-2 border-primary/20 group-hover:border-primary/40 group-hover:scale-110 transition-all duration-300`}>
+                    <div className={`bg-gradient-to-br ${capability.color} flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border-2 border-primary/20 group-hover:border-primary/40  transition-all duration-[2500ms] ease-out`}>
                       <capability.icon className="text-primary h-7 w-7" />
                     </div>
                     <div className="flex-1">
@@ -402,11 +407,11 @@ export default function CapabilitiesPage() {
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=800&fit=crop&q=90"
                   alt="Get started with Flexibench capabilities"
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-1000"
+                  className="object-cover  transition-transform duration-1000"
                 />
                 {/* Enhanced Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/85" />
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/40 via-purple-600/30 to-indigo-600/40" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 via-purple-600/25 to-indigo-600/30" />
                 
                 {/* Animated Background Pattern */}
                 <div className="absolute inset-0 opacity-10" style={{
@@ -439,7 +444,7 @@ export default function CapabilitiesPage() {
                       Start building model-ready datasets with Flexibench's enterprise-grade annotation platform
                     </p>
                     
-                    <Button asChild size="lg" className="text-base h-14 px-8 bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.3)] hover:scale-105 transition-all duration-300">
+                    <Button asChild size="lg" className="text-base h-14 px-8 bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.3)] hover:scale-105 transition-all duration-[2500ms] ease-out">
                       <Link href="/contact">
                         Get Started
                         <ArrowRight className="ml-2 h-5 w-5" />

@@ -18,11 +18,11 @@ export function InternalToolsSection() {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   return (
-    <section className="relative bg-gradient-to-br from-red-50 via-rose-50 to-pink-50 dark:from-red-950 dark:via-rose-950 dark:to-pink-950 section-padding-y border-b overflow-hidden">
+    <section className="relative bg-gradient-to-br from-red-50/60 via-rose-50/40 to-pink-50/30 dark:from-red-950 dark:via-rose-950 dark:to-pink-950 section-padding-y border-b overflow-hidden">
       {/* Enhanced Decorative Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-red-400/4 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-rose-400/4 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-red-400/6 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-rose-400/6 rounded-full blur-3xl" />
         <div className="absolute inset-0 bg-gradient-to-tr from-red-500/2 via-transparent to-rose-500/2" />
         {/* Subtle Pattern */}
         <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style={{
@@ -33,7 +33,7 @@ export function InternalToolsSection() {
 
       <div ref={sectionRef} className="container-padding-x container mx-auto relative z-10 flex flex-col gap-12 md:gap-16">
         {/* Section Title */}
-        <div className={`mx-auto flex max-w-3xl flex-col items-center text-center gap-6 transition-all duration-700 ${isVisible ? 'opacity-100 animate-slide-in-subtle' : 'opacity-0'}`}>
+        <div className={`mx-auto flex max-w-3xl flex-col items-center text-center gap-6 transition-all duration-[3000ms] ease-out ${isVisible ? 'opacity-100 animate-slide-in-subtle' : 'opacity-0'}`}>
           <Tagline>Ecosystem</Tagline>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight">
             Extend Annotation from{" "}
@@ -49,16 +49,16 @@ export function InternalToolsSection() {
         {/* Enhanced 1-2 Grid Layout */}
         <div className="grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-3">
           {/* Wide Card - DataBench with Visual */}
-          <Card className={`group relative bg-gradient-to-br from-secondary/80 via-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-10 shadow-xl hover:shadow-2xl transition-all duration-500 lg:col-span-2 hover:scale-[1.01] hover:border-primary/30 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '100ms' }}>
+          <Card className={`group relative bg-gradient-to-br from-secondary/80 via-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border-2 border-border/50 p-10 shadow-xl hover:shadow-2xl transition-all duration-[2500ms] ease-out lg:col-span-2 hover:scale-[1.01] hover:border-primary/30 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '100ms' }}>
             {/* Decorative Background */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32 group-hover:bg-primary/10 transition-colors" />
             
             <CardContent className="relative flex flex-col gap-8 p-0">
               <div className="flex items-start gap-6">
-                <div className="bg-gradient-to-br from-primary/30 to-primary/10 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-primary/30 to-primary/10 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-lg group-hover:scale-110 transition-transform duration-[2500ms] ease-out">
                   {(() => {
                     const IconComponent = iconMap[internalTools[0].icon];
-                    return IconComponent ? <IconComponent className="text-primary h-10 w-10 group-hover:rotate-6 transition-transform duration-300" /> : null;
+                    return IconComponent ? <IconComponent className="text-primary h-10 w-10 group-hover:rotate-6 transition-transform duration-[2500ms] ease-out" /> : null;
                   })()}
                 </div>
                 <div className="flex-1">
@@ -77,7 +77,7 @@ export function InternalToolsSection() {
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop&q=80"
                   alt="DataBench workflow orchestration dashboard showing dataset management, workflow builder, and review pipelines"
                   fill
-                  className="object-cover group-hover/image:scale-110 transition-transform duration-500"
+                  className="object-cover group-hover/image:scale-110 transition-transform duration-[2500ms] ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
@@ -120,7 +120,7 @@ export function InternalToolsSection() {
 
           {/* Two Stacked Cards - Phonex and FlexiPod */}
           <div className="flex flex-col gap-6">
-            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex-1 hover:scale-[1.02] hover:-translate-y-1">
+            <Card className="group relative bg-gradient-to-br from-background to-secondary/40 gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-[2500ms] ease-out flex-1 hover:scale-[1.02] hover:-translate-y-1">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-16 -mt-16" />
               <CardContent className="relative flex flex-col gap-6 p-0">
                 <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-primary/20 shadow-md">
@@ -136,7 +136,7 @@ export function InternalToolsSection() {
                     src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=400&fit=crop&q=80"
                     alt="Phonex voice annotation interface showing audio waveforms, speaker diarization, and transcription tools"
                     fill
-                    className="object-cover group-hover/image:scale-110 transition-transform duration-500"
+                    className="object-cover group-hover/image:scale-110 transition-transform duration-[2500ms] ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
                   <div className="absolute bottom-2 left-2 right-2">
@@ -163,7 +163,7 @@ export function InternalToolsSection() {
               </CardContent>
             </Card>
 
-            <Card className={`group relative bg-gradient-to-br from-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex-1 hover:scale-[1.02] hover:-translate-y-1 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '300ms' }}>
+            <Card className={`group relative bg-gradient-to-br from-secondary/40 to-background gap-0 overflow-hidden rounded-2xl border border-border/50 p-8 shadow-lg hover:shadow-xl transition-all duration-[2500ms] ease-out flex-1 hover:scale-[1.02] hover:-translate-y-1 hover-lift ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '300ms' }}>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -ml-16 -mb-16" />
               <CardContent className="relative flex flex-col gap-6 p-0">
                 <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-primary/20 shadow-md">
@@ -179,7 +179,7 @@ export function InternalToolsSection() {
                     src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&q=80"
                     alt="FlexiPod cross-functional team collaboration showing annotation engineers, data scientists, and domain specialists working together"
                     fill
-                    className="object-cover group-hover/image:scale-110 transition-transform duration-500"
+                    className="object-cover group-hover/image:scale-110 transition-transform duration-[2500ms] ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
                   <div className="absolute bottom-2 left-2 right-2">

@@ -16,9 +16,9 @@ export function LogoSection10() {
     <section className="relative bg-gradient-to-br from-indigo-950 via-purple-950 to-violet-950 dark:from-indigo-950 dark:via-purple-950 dark:to-violet-950 border-b py-24 lg:py-32 overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/8 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
         <div className="absolute inset-0 opacity-20" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)`,
           backgroundSize: '64px 64px'
@@ -57,22 +57,22 @@ export function LogoSection10() {
                       className="flex-shrink-0 group relative"
                     >
                       {/* Brand Container with White Background for Better Contrast */}
-                      <div className="relative px-10 py-6 rounded-2xl bg-white dark:bg-slate-900 border border-border/50 shadow-lg backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:scale-110 hover:-translate-y-2">
+                      <div className="relative px-10 py-6 rounded-2xl bg-white dark:bg-slate-900 border border-border/50 shadow-lg backdrop-blur-sm hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:scale-110 hover:-translate-y-2">
                         {/* Gradient Glow Effect */}
-                        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${brand.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-xl`} />
+                        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${brand.color} opacity-0 group-hover:opacity-10 transition-opacity duration-[2500ms] ease-out blur-xl`} />
                         
                         {/* Brand Name */}
                         <div className="relative">
-                          <div className="text-slate-900 dark:text-slate-100 group-hover:text-foreground transition-colors duration-300 font-bold text-xl md:text-2xl tracking-tight">
+                          <div className="text-slate-900 dark:text-slate-100 group-hover:text-foreground transition-colors duration-[2500ms] ease-out font-bold text-xl md:text-2xl tracking-tight">
                             {brand.name}
                           </div>
                           {/* Underline Effect */}
-                          <div className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r ${brand.color} w-0 group-hover:w-full transition-all duration-500 rounded-full`} />
+                          <div className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r ${brand.color} w-0 group-hover:w-full transition-all duration-[2500ms] ease-out rounded-full`} />
                         </div>
                         
                         {/* Decorative Elements */}
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out" />
+                        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out delay-100" />
                       </div>
                     </div>
                   );

@@ -56,7 +56,7 @@ export function QualityGovernanceSection() {
             return (
               <Card
                 key={principle.title}
-                className={`group relative bg-gradient-to-br from-background to-secondary/30 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 ${animations[index % animations.length]} ${colSpan}`}
+                className={`group relative bg-gradient-to-br from-background to-secondary/30 rounded-2xl border-2 border-border/50 p-8 shadow-lg hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:scale-105 hover:-translate-y-2 hover:border-primary/30 opacity-0 ${animations[index % animations.length]} ${colSpan}`}
                 style={{ animationDelay: `${animationDelay}ms` }}
               >
                 <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-xl -mr-10 -mt-10" />
@@ -81,7 +81,7 @@ export function QualityGovernanceSection() {
                       }
                       alt={`${principle.title} - Quality and governance visualization`}
                       fill
-                      className="object-cover group-hover/image:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover/image:scale-110 transition-transform duration-[2500ms] ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
                   </div>

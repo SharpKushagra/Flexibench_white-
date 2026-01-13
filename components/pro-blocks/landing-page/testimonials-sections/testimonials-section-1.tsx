@@ -20,12 +20,12 @@ export default function TestimonialsSection1({
 }: TestimonialsSection1Props) {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
   const gradientClass = variant === "rose" 
-    ? "from-rose-50 via-pink-50 to-fuchsia-50 dark:from-rose-950 dark:via-pink-950 dark:to-fuchsia-950"
-    : "from-amber-50 via-orange-50 to-yellow-50 dark:from-amber-950 dark:via-orange-950 dark:to-yellow-950";
+    ? "from-rose-50/60 via-pink-50/40 to-fuchsia-50/30 dark:from-rose-950 dark:via-pink-950 dark:to-fuchsia-950"
+    : "from-orange-50/55 via-amber-50/35 to-yellow-50/25 dark:from-orange-950 dark:via-amber-950 dark:to-yellow-950";
   
   const orbColor = variant === "rose"
-    ? "bg-rose-400/20"
-    : "bg-amber-400/20";
+    ? "bg-rose-400/15"
+    : "bg-orange-400/18";
 
   return (
     <section
@@ -48,7 +48,7 @@ export default function TestimonialsSection1({
       {/* Content Container */}
       <div ref={sectionRef} className="relative z-10 flex max-w-3xl flex-col items-center gap-10">
         {/* Quote Icon */}
-        <div className={`flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 transition-all duration-700 hover:scale-110 hover:bg-primary/30 ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`}>
+        <div className={`flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 transition-all duration-[3000ms] ease-out hover:scale-110 hover:bg-primary/30 ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`}>
           <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
           </svg>
@@ -57,16 +57,16 @@ export default function TestimonialsSection1({
         {/* Testimonial Quote */}
         <blockquote
           id="testimonial-title"
-          className={`text-center text-2xl md:text-3xl lg:text-4xl font-semibold leading-relaxed text-foreground transition-all duration-700 ${isVisible ? 'opacity-100 animate-slide-in-subtle' : 'opacity-0'}`}
+          className={`text-center text-2xl md:text-3xl lg:text-4xl font-semibold leading-relaxed text-foreground transition-all duration-[3000ms] ease-out ${isVisible ? 'opacity-100 animate-slide-in-subtle' : 'opacity-0'}`}
           style={{ transitionDelay: '200ms' }}
         >
           &quot;{quote}&quot;
         </blockquote>
 
         {/* Author Information */}
-        <div className={`flex flex-col items-center gap-5 transition-all duration-700 ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '400ms' }}>
+        <div className={`flex flex-col items-center gap-5 transition-all duration-[3000ms] ease-out ${isVisible ? 'opacity-100 animate-fade-in-scale' : 'opacity-0'}`} style={{ transitionDelay: '400ms' }}>
           {/* Author Avatar */}
-          <Avatar className="h-16 w-16 rounded-2xl ring-4 ring-primary/20 shadow-lg md:h-20 md:w-20 hover:scale-110 transition-transform duration-300">
+          <Avatar className="h-16 w-16 rounded-2xl ring-4 ring-primary/20 shadow-lg md:h-20 md:w-20 hover:scale-110 transition-transform duration-[2500ms] ease-out">
             <AvatarImage src={avatarSrc} alt={authorName} />
           </Avatar>
 

@@ -6,18 +6,19 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tagline } from "@/components/pro-blocks/landing-page/tagline";
 import Image from "next/image";
 import Link from "next/link";
+import { blurPlaceholders } from "@/lib/image-utils";
 
 export function HeroSection2() {
   return (
     <section
-      className="relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-slate-950 dark:via-blue-950/30 dark:to-indigo-950/20 pt-20 pb-24 overflow-hidden border-b"
+      className="relative bg-gradient-to-br from-slate-50 via-slate-50/80 to-stone-50/60 dark:from-slate-950 dark:via-slate-950/80 dark:to-stone-950/60 pt-20 pb-24 overflow-hidden border-b"
       aria-labelledby="hero-heading"
     >
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Subtle Gradient Orbs */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/5 via-blue-500/3 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/4 via-indigo-500/2 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/8 via-slate-300/8 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-slate-300/8 via-stone-300/6 to-transparent rounded-full blur-3xl" />
         
         {/* Grid Pattern Overlay */}
         <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style={{
@@ -33,9 +34,9 @@ export function HeroSection2() {
           {/* Left Column - Enhanced with Better Spacing */}
           <div className="flex flex-1 flex-col gap-6 lg:gap-8 w-full pt-0">
             {/* Tagline with Badge Style */}
-            <div className="inline-flex items-center gap-2 w-fit">
+              <div className="inline-flex items-center gap-2 w-fit">
               <Tagline className="mb-0">Enterprise Annotation Platform</Tagline>
-              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary/10 to-blue-500/10 border border-primary/20">
+              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary/12 to-primary/8 border border-primary/20">
                 <Sparkles className="h-3.5 w-3.5 text-primary" />
                 <span className="text-xs font-semibold text-primary">AI-Powered</span>
               </div>
@@ -62,9 +63,9 @@ export function HeroSection2() {
                   </svg>
                 </span>{" "}
                 Data with{" "}
-                <span className="relative inline-block text-primary bg-gradient-to-r from-primary via-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                <span className="relative inline-block text-primary">
                   Precision & Quality
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary/50 via-blue-500/50 to-indigo-500/50 rounded-full blur-sm" />
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary/40 via-primary/50 to-primary/40 rounded-full blur-sm" />
                 </span>
               </h1>
             </div>
@@ -77,9 +78,9 @@ export function HeroSection2() {
 
             {/* Enhanced Feature Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover-lift">
-                <div className="bg-gradient-to-br from-primary/20 to-blue-500/10 rounded-xl p-3 mt-0.5 group-hover:scale-110 transition-transform duration-300">
-                  <Check className="text-primary h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-[2500ms] ease-out hover-lift">
+                <div className="bg-gradient-to-br from-primary/18 to-primary/10 rounded-xl p-3 mt-0.5 group-hover:scale-[1.02] transition-transform duration-[2500ms] ease-out">
+                  <Check className="text-primary h-5 w-5 group-hover:rotate-3 transition-transform duration-[2500ms] ease-out" />
                 </div>
                 <div className="flex-1">
                   <p className="font-bold text-base mb-1.5 text-foreground">Multimodal Support</p>
@@ -90,8 +91,8 @@ export function HeroSection2() {
                 </div>
               </div>
 
-              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover-lift">
-                <div className="bg-gradient-to-br from-primary/20 to-purple-500/10 rounded-xl p-3 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-[2500ms] ease-out hover-lift">
+                <div className="bg-gradient-to-br from-primary/18 to-primary/10 rounded-xl p-3 mt-0.5 transition-transform duration-[2500ms] ease-out">
                   <Zap className="text-primary h-5 w-5" />
                 </div>
                 <div className="flex-1">
@@ -103,8 +104,8 @@ export function HeroSection2() {
                 </div>
               </div>
 
-              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover-lift">
-                <div className="bg-gradient-to-br from-primary/20 to-indigo-500/10 rounded-xl p-3 mt-0.5 group-hover:scale-110 transition-transform duration-300">
+              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-[2500ms] ease-out hover-lift">
+                <div className="bg-gradient-to-br from-primary/18 to-primary/10 rounded-xl p-3 mt-0.5 transition-transform duration-[2500ms] ease-out">
                   <Check className="text-primary h-5 w-5" />
                 </div>
                 <div className="flex-1">
@@ -116,9 +117,9 @@ export function HeroSection2() {
                 </div>
               </div>
 
-              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 hover-lift">
-                <div className="bg-gradient-to-br from-primary/20 to-blue-500/10 rounded-xl p-3 mt-0.5 group-hover:scale-110 transition-transform duration-300">
-                  <Check className="text-primary h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+              <div className="group relative flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-br from-background/80 to-secondary/40 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-[2500ms] ease-out hover-lift">
+                <div className="bg-gradient-to-br from-primary/18 to-primary/10 rounded-xl p-3 mt-0.5 group-hover:scale-[1.02] transition-transform duration-[2500ms] ease-out">
+                  <Check className="text-primary h-5 w-5 group-hover:rotate-3 transition-transform duration-[2500ms] ease-out" />
                 </div>
                 <div className="flex-1">
                   <p className="font-bold text-base mb-1.5 text-foreground">API-First Design</p>
@@ -135,22 +136,22 @@ export function HeroSection2() {
               <Button 
                 asChild 
                 size="lg" 
-                className="text-base px-8 py-6 h-auto bg-primary hover:bg-primary/90 shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                className="text-base px-8 py-6 h-auto bg-primary hover:bg-primary/90 shadow-md shadow-primary/10 hover:shadow-lg hover:shadow-primary/15 transition-all duration-[2500ms] ease-out hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 <Link href="/contact" className="group/btn">
                   Get Started
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-0.5 transition-transform duration-[2500ms] ease-out" />
                 </Link>
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
                 asChild 
-                className="text-base px-8 py-6 h-auto border-2 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                className="text-base px-8 py-6 h-auto border-2 hover:border-primary/50 hover:bg-primary/5 transition-all duration-[2500ms] ease-out hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 <Link href="/#platform" className="group/btn">
                   Explore Platform
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-0.5 transition-transform duration-[2500ms] ease-out" />
                 </Link>
               </Button>
             </div>
@@ -159,9 +160,9 @@ export function HeroSection2() {
             <div className="flex items-center gap-6 pt-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-blue-600 border-2 border-background" />
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 border-2 border-background" />
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 border-2 border-background" />
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-primary/80 border-2 border-background" />
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-slate-500 to-slate-600 border-2 border-background" />
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-stone-400 to-stone-500 border-2 border-background" />
                 </div>
                 <span className="font-medium">Trusted by 500+ teams</span>
               </div>
@@ -181,11 +182,11 @@ export function HeroSection2() {
                 preserveAspectRatio="xMidYMin meet"
               >
                 <defs>
-                  {/* Subtle Gradient for Data Flow */}
+                  {/* Bright Gradient for Data Flow */}
                   <linearGradient id="dataFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgb(59, 130, 246)" stopOpacity="0.6" />
-                    <stop offset="50%" stopColor="rgb(99, 102, 241)" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="rgb(139, 92, 246)" stopOpacity="0.4" />
+                    <stop offset="0%" stopColor="rgb(99, 102, 241)" stopOpacity="0.8" />
+                    <stop offset="50%" stopColor="rgb(129, 140, 248)" stopOpacity="0.75" />
+                    <stop offset="100%" stopColor="rgb(165, 180, 252)" stopOpacity="0.7" />
                   </linearGradient>
                   
                   {/* Subtle Glow Filter */}
@@ -205,7 +206,7 @@ export function HeroSection2() {
                   strokeWidth="3"
                   strokeLinecap="round"
                   fill="none"
-                  opacity="0.4"
+                  opacity="0.6"
                   strokeDasharray="8 4"
                 >
                   <animate
@@ -229,13 +230,13 @@ export function HeroSection2() {
                       cx={node.x}
                       cy={node.y}
                       r="12"
-                      fill="rgb(59, 130, 246)"
-                      opacity="0.3"
+                      fill="rgb(99, 102, 241)"
+                      opacity="0.4"
                       filter="url(#subtleGlow)"
                     >
                       <animate
                         attributeName="opacity"
-                        values="0.3;0.5;0.3"
+                        values="0.4;0.7;0.4"
                         dur="2s"
                         repeatCount="indefinite"
                         begin={`${i * 0.3}s`}
@@ -246,8 +247,8 @@ export function HeroSection2() {
                       cx={node.x}
                       cy={node.y}
                       r="4"
-                      fill="rgb(59, 130, 246)"
-                      opacity="0.6"
+                      fill="rgb(99, 102, 241)"
+                      opacity="0.8"
                     />
                   </g>
                 ))}
@@ -257,8 +258,8 @@ export function HeroSection2() {
                   <circle
                     key={i}
                     r="6"
-                    fill="rgb(59, 130, 246)"
-                    opacity="0.5"
+                    fill="rgb(99, 102, 241)"
+                    opacity="0.6"
                   >
                     <animateMotion
                       dur="3s"
@@ -269,7 +270,7 @@ export function HeroSection2() {
                     />
                     <animate
                       attributeName="opacity"
-                      values="0.3;0.6;0.3"
+                      values="0.5;0.8;0.5"
                       dur="1.5s"
                       repeatCount="indefinite"
                       begin={`${i * 0.3}s`}
@@ -286,8 +287,8 @@ export function HeroSection2() {
                       width="24"
                       height="16"
                       rx="3"
-                      fill="rgb(99, 102, 241)"
-                      opacity="0.4"
+                      fill="rgb(129, 140, 248)"
+                      opacity="0.55"
                     >
                       <animate
                         attributeName="y"
@@ -298,7 +299,7 @@ export function HeroSection2() {
                       />
                       <animate
                         attributeName="opacity"
-                        values="0.2;0.5;0.2"
+                        values="0.45;0.75;0.45"
                         dur="2s"
                         repeatCount="indefinite"
                         begin={`${i * 0.4}s`}
@@ -313,28 +314,28 @@ export function HeroSection2() {
                     cx={300}
                     cy={100}
                     r="8"
-                    fill="rgb(34, 197, 94)"
-                    opacity="0.3"
+                    fill="rgb(99, 102, 241)"
+                    opacity="0.5"
                   >
                     <animate
                       attributeName="opacity"
-                      values="0.2;0.4;0.2"
+                      values="0.45;0.75;0.45"
                       dur="2.5s"
                       repeatCount="indefinite"
                     />
                   </circle>
                   <path
                     d="M 295 100 L 298 103 L 305 96"
-                    stroke="rgb(34, 197, 94)"
+                    stroke="rgb(99, 102, 241)"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     fill="none"
-                    opacity="0.5"
+                    opacity="0.75"
                   >
                     <animate
                       attributeName="opacity"
-                      values="0.3;0.6;0.3"
+                      values="0.55;0.85;0.55"
                       dur="2.5s"
                       repeatCount="indefinite"
                     />
@@ -342,15 +343,15 @@ export function HeroSection2() {
                 </g>
               </svg>
               
-              {/* Subtle Background Glow Effects */}
-              <div className="absolute -top-20 -right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
-              <div className="absolute -bottom-24 -left-24 w-[600px] h-48 bg-indigo-500/5 rounded-full blur-2xl" />
+              {/* Bright Background Glow Effects */}
+              <div className="absolute -top-20 -right-20 w-96 h-96 bg-indigo-400/15 rounded-full blur-3xl animate-pulse-slow" />
+              <div className="absolute -bottom-24 -left-24 w-[600px] h-48 bg-indigo-400/12 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
             </div>
             
             {/* Main Image Container with Enhanced Effects - Positioned below animation */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-border/50 group" style={{ marginTop: '272px' }}>
               {/* Decorative Border Glow */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-blue-500/20 to-indigo-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/18 via-primary/15 to-primary/18 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-[3000ms] ease-out -z-10" />
               
               <AspectRatio ratio={16 / 12}>
                 <Image
@@ -358,24 +359,26 @@ export function HeroSection2() {
                   alt="Enterprise data annotation platform dashboard showing annotation workflows, quality metrics, and AI-assisted labeling interface"
                   fill
                   priority
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  placeholder="blur"
+                  blurDataURL={blurPlaceholders.blue}
+                  className="object-cover group-hover:scale-[1.02] transition-transform duration-[3000ms] ease-out"
                 />
                 {/* Enhanced Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent dark:from-slate-950/95 dark:via-slate-950/60" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-blue-500/10" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-primary/8" />
                 
                 {/* Floating Stats Cards */}
                 <div className="absolute top-6 left-6 right-6 flex gap-3">
-                  <div className="bg-background/95 backdrop-blur-md rounded-xl p-4 border border-border/50 shadow-xl flex-1 group-hover:scale-105 transition-transform">
+                  <div className="bg-background/95 backdrop-blur-md rounded-xl p-4 border border-border/50 shadow-xl flex-1 transition-transform duration-[2500ms] ease-out">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                       <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Active Projects</p>
                     </div>
                     <p className="text-2xl font-bold text-foreground">1,247</p>
                   </div>
-                  <div className="bg-background/95 backdrop-blur-md rounded-xl p-4 border border-border/50 shadow-xl flex-1 group-hover:scale-105 transition-transform delay-75">
+                  <div className="bg-background/95 backdrop-blur-md rounded-xl p-4 border border-border/50 shadow-xl flex-1 transition-transform duration-[2500ms] ease-out">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                       <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Annotations</p>
                     </div>
                     <p className="text-2xl font-bold text-foreground">2.4M</p>
@@ -386,7 +389,7 @@ export function HeroSection2() {
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="bg-background/95 backdrop-blur-md rounded-xl p-5 border border-border/50 shadow-xl group-hover:shadow-2xl transition-all">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="bg-gradient-to-br from-primary/20 to-blue-500/10 rounded-lg p-2">
+                      <div className="bg-gradient-to-br from-primary/18 to-primary/10 rounded-lg p-2">
                         <Sparkles className="h-5 w-5 text-primary" />
                       </div>
                       <div>
@@ -396,11 +399,11 @@ export function HeroSection2() {
                     </div>
                     <div className="flex items-center gap-4 mt-4 pt-4 border-t border-border/50">
                       <div className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                         <span className="text-xs text-muted-foreground">99.9% Uptime</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                         <span className="text-xs text-muted-foreground">Enterprise Ready</span>
                       </div>
                     </div>
@@ -410,8 +413,8 @@ export function HeroSection2() {
             </div>
             
             {/* Subtle Floating Decorative Elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/3 rounded-3xl blur-2xl" />
-            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-indigo-500/3 rounded-full blur-3xl" />
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/5 rounded-3xl blur-2xl" />
+            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-slate-300/8 rounded-full blur-3xl" />
             
             {/* Quick Setup Process and Efficiency Badge - Positioned After Image */}
             <div className="flex flex-col gap-4 mt-8 lg:flex-row lg:items-start lg:justify-end">
@@ -440,7 +443,7 @@ export function HeroSection2() {
                       </div>
                     )}
                     {/* Step Number */}
-                    <div className={`relative flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-500 ${
+                    <div className={`relative flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-[2500ms] ease-out ${
                       item.status === "completed" 
                         ? "bg-primary text-white shadow-lg shadow-primary/50" 
                         : item.status === "active"
@@ -478,8 +481,8 @@ export function HeroSection2() {
               </div>
               
               {/* Floating Indicator */}
-              <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full border-2 border-background animate-ping" />
-              <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full border-2 border-background" />
+              <div className="absolute -top-2 -right-2 w-4 h-4 bg-primary rounded-full border-2 border-background animate-ping" />
+              <div className="absolute -top-2 -right-2 w-4 h-4 bg-primary rounded-full border-2 border-background" />
             </div>
             
             {/* +40% Efficiency Badge */}

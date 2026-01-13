@@ -72,70 +72,70 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.282 0.087 267.935);
+  --foreground: oklch(0.282 0.02 267.935);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.282 0.087 267.935);
+  --card-foreground: oklch(0.282 0.02 267.935);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.282 0.087 267.935);
-  --primary: oklch(0.677 0.203 40.381);
+  --popover-foreground: oklch(0.282 0.02 267.935);
+  --primary: oklch(0.68 0.10 50);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.981 0.009 258.335);
-  --secondary-foreground: oklch(0.282 0.087 267.935);
-  --muted: oklch(0.984 0.003 247.858);
-  --muted-foreground: oklch(0.516 0.054 272.586);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.04 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.677 0.203 40.381 / 0.1);
-  --chart-1: oklch(0.677 0.203 40.381);
-  --chart-2: oklch(0.677 0.157 35.096);
-  --chart-3: oklch(0.379 0.044 226.154);
-  --chart-4: oklch(0.833 0.119 88.346);
-  --chart-5: oklch(0.784 0.126 58.996);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.282 0.087 267.935);
-  --sidebar-primary: oklch(0.282 0.087 267.935);
+  --secondary: oklch(0.981 0.005 258.335);
+  --secondary-foreground: oklch(0.282 0.03 267.935);
+  --muted: oklch(0.984 0.005 247.858);
+  --muted-foreground: oklch(0.516 0.03 272.586);
+  --accent: oklch(0.968 0.005 247.896);
+  --accent-foreground: oklch(0.208 0.03 265.755);
+  --destructive: oklch(0.577 0.15 27.325);
+  --border: oklch(0.929 0.01 255.508);
+  --input: oklch(0.929 0.01 255.508);
+  --ring: oklch(0.68 0.10 50 / 0.15);
+  --chart-1: oklch(0.68 0.10 50);
+  --chart-2: oklch(0.65 0.09 45);
+  --chart-3: oklch(0.60 0.08 55);
+  --chart-4: oklch(0.70 0.09 40);
+  --chart-5: oklch(0.72 0.10 48);
+  --sidebar: oklch(0.984 0.002 247.858);
+  --sidebar-foreground: oklch(0.282 0.02 267.935);
+  --sidebar-primary: oklch(0.282 0.02 267.935);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.282 0.087 267.935);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.929 0.013 255.508);
+  --sidebar-accent: oklch(0.968 0.003 247.896);
+  --sidebar-accent-foreground: oklch(0.282 0.02 267.935);
+  --sidebar-border: oklch(0.929 0.008 255.508);
+  --sidebar-ring: oklch(0.929 0.008 255.508);
 }
 
 .dark {
-  --background: oklch(0.15 0.02 267.935);
-  --foreground: oklch(0.95 0.01 267.935);
-  --card: oklch(0.18 0.02 267.935);
-  --card-foreground: oklch(0.95 0.01 267.935);
-  --popover: oklch(0.18 0.02 267.935);
-  --popover-foreground: oklch(0.95 0.01 267.935);
-  --primary: oklch(0.677 0.203 40.381);
-  --primary-foreground: oklch(0.15 0.02 267.935);
+  --background: oklch(0.15 0.01 267.935);
+  --foreground: oklch(0.95 0.005 267.935);
+  --card: oklch(0.18 0.01 267.935);
+  --card-foreground: oklch(0.95 0.005 267.935);
+  --popover: oklch(0.18 0.01 267.935);
+  --popover-foreground: oklch(0.95 0.005 267.935);
+  --primary: oklch(0.75 0.10 50);
+  --primary-foreground: oklch(0.15 0.01 267.935);
   --secondary: oklch(0.25 0.02 267.935);
   --secondary-foreground: oklch(0.95 0.01 267.935);
   --muted: oklch(0.22 0.02 267.935);
   --muted-foreground: oklch(0.65 0.02 267.935);
   --accent: oklch(0.25 0.02 267.935);
   --accent-foreground: oklch(0.95 0.01 267.935);
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: oklch(0.577 0.15 27.325);
   --border: oklch(0.3 0.02 267.935);
   --input: oklch(0.3 0.02 267.935);
-  --ring: oklch(0.677 0.203 40.381 / 0.3);
-  --chart-1: oklch(0.677 0.203 40.381);
-  --chart-2: oklch(0.677 0.157 35.096);
-  --chart-3: oklch(0.379 0.044 226.154);
-  --chart-4: oklch(0.833 0.119 88.346);
-  --chart-5: oklch(0.784 0.126 58.996);
-  --sidebar: oklch(0.18 0.02 267.935);
-  --sidebar-foreground: oklch(0.95 0.01 267.935);
-  --sidebar-primary: oklch(0.95 0.01 267.935);
-  --sidebar-primary-foreground: oklch(0.15 0.02 267.935);
-  --sidebar-accent: oklch(0.25 0.02 267.935);
-  --sidebar-accent-foreground: oklch(0.95 0.01 267.935);
-  --sidebar-border: oklch(0.3 0.02 267.935);
-  --sidebar-ring: oklch(0.3 0.02 267.935);
+  --ring: oklch(0.75 0.10 50 / 0.3);
+  --chart-1: oklch(0.75 0.10 50);
+  --chart-2: oklch(0.72 0.09 45);
+  --chart-3: oklch(0.65 0.08 55);
+  --chart-4: oklch(0.78 0.09 40);
+  --chart-5: oklch(0.80 0.10 48);
+  --sidebar: oklch(0.18 0.01 267.935);
+  --sidebar-foreground: oklch(0.95 0.005 267.935);
+  --sidebar-primary: oklch(0.95 0.005 267.935);
+  --sidebar-primary-foreground: oklch(0.15 0.01 267.935);
+  --sidebar-accent: oklch(0.25 0.01 267.935);
+  --sidebar-accent-foreground: oklch(0.95 0.005 267.935);
+  --sidebar-border: oklch(0.3 0.01 267.935);
+  --sidebar-ring: oklch(0.3 0.01 267.935);
 }
 
 @theme {
@@ -478,11 +478,111 @@
   animation: slideInSubtle 0.5s ease-out forwards;
 }
 
-/* Smooth transitions for all interactive elements */
+/* New vibrant animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-5px) translateX(10px);
+  }
+  75% {
+    transform: translateY(-15px) translateX(5px);
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-wave {
+  animation: wave 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+  background-size: 200% auto;
+}
+
+/* FORCE ultra-smooth, ULTRA SLOW transitions - but allow animations to work */
 * {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter !important;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
+  transition-duration: 3000ms !important;
+}
+
+/* Force ULTRA slow hover transitions for interactive elements - but allow base animations */
+button, a, [role="button"] {
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
+  transition-duration: 4000ms !important;
+}
+
+/* Slow down transforms but DON'T disable them - allow animations to work */
+[class*="hover:scale"], [class*="group-hover:scale"],
+[class*="hover:translate"], [class*="group-hover:translate"],
+[class*="hover:rotate"], [class*="group-hover:rotate"] {
+  transition: transform 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
+              opacity 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
+              box-shadow 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
+              border-color 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
+              background-color 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
+              color 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* Force ULTRA slow transitions for transition utility classes */
+[class*="transition"]:not([class*="animate"]) {
+  transition-duration: 4000ms !important;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* Override duration classes but not animations */
+[class*="duration"]:not([class*="animate"]) {
+  transition-duration: 4000ms !important;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* Allow SVG animations and keyframe animations to work normally */
+svg, svg *, [class*="animate"], @keyframes {
+  transition: none;
+  animation-duration: initial !important;
 }
 
 /* Accessibility: Focus states for keyboard navigation */
@@ -521,20 +621,57 @@ textarea:focus-visible {
   z-index: 9999;
 }
 
-/* Enhanced hover states */
+/* FORCE ultra-smooth hover states - override everything */
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 3000ms cubic-bezier(0.16, 1, 0.3, 1) !important, 
+              box-shadow 3000ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, box-shadow !important;
 }
 
 .hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 .hover-glow {
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 3000ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: box-shadow !important;
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* ULTRA-SLOW hover animations for cards only - but allow base animations */
+.group:hover:not(svg):not([class*="animate"]) {
+  transition-duration: 4000ms !important;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* Slow down card hover effects specifically */
+.group:hover > div:not([class*="animate"]),
+.group:hover > [class*="Card"]:not([class*="animate"]) {
+  transition-duration: 4000ms !important;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* Make scale effects on cards very subtle */
+.group:hover [class*="group-hover:scale"] {
+  transform: scale(1.005) !important;
+  transition: transform 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* Force opacity transitions to be ultra slow (but not on animations) */
+[class*="opacity"]:not([class*="animate"]) {
+  transition: opacity 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* Force shadow transitions to be ultra slow */
+[class*="shadow"]:not([class*="animate"]) {
+  transition: box-shadow 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+/* Force border transitions to be ultra slow */
+[class*="border"]:not([class*="animate"]) {
+  transition: border-color 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
 }

@@ -43,7 +43,7 @@ function ContactFormContent({
             <Button
               variant={formType === "sales" ? "default" : "outline"}
               onClick={() => setFormType("sales")}
-              className={`flex-1 h-14 text-base font-semibold transition-all duration-300 ${
+              className={`flex-1 h-14 text-base font-semibold transition-all duration-[2500ms] ease-out ${
                 formType === "sales"
                   ? "bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg shadow-primary/25"
                   : "hover:border-primary/50 hover:bg-primary/5"
@@ -55,7 +55,7 @@ function ContactFormContent({
             <Button
               variant={formType === "demo" ? "default" : "outline"}
               onClick={() => setFormType("demo")}
-              className={`flex-1 h-14 text-base font-semibold transition-all duration-300 ${
+              className={`flex-1 h-14 text-base font-semibold transition-all duration-[2500ms] ease-out ${
                 formType === "demo"
                   ? "bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg shadow-primary/25"
                   : "hover:border-primary/50 hover:bg-primary/5"
@@ -66,15 +66,15 @@ function ContactFormContent({
             </Button>
           </div>
 
-          <Card className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-primary/40 hover:scale-[1.01]">
+          <Card className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:border-primary/40 ">
             {/* Animated Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-            <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl -mr-20 -mt-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -ml-16 -mb-16 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ animationDelay: '0.2s' }} />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/2 opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out rounded-3xl" />
+            <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl -mr-20 -mt-20 opacity-0 group-hover:opacity-100 transition-opacity duration-[3000ms] ease-out" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -ml-16 -mb-16 opacity-0 group-hover:opacity-100 transition-opacity duration-[3000ms] ease-out" style={{ animationDelay: '0.2s' }} />
             
             <CardContent className="relative flex flex-col gap-8 p-0">
               <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/30 shadow-lg  group-hover:rotate-6 transition-all duration-[2500ms] ease-out">
                   {formType === "sales" ? (
                     <Zap className="text-primary h-8 w-8" />
                   ) : (
@@ -150,7 +150,7 @@ function ContactFormContent({
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="h-14 text-base font-semibold bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5 mt-2 animate-fade-in-up"
+                  className="h-14 text-base font-semibold bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-[2500ms] ease-out hover:-translate-y-0.5 mt-2 animate-fade-in-up"
                   style={{ animationDelay: '0.5s' }}
                 >
                   {formType === "sales" ? "Contact Sales" : "Schedule Demo"}
@@ -164,16 +164,16 @@ function ContactFormContent({
         {/* Contact Options */}
         <div className="flex flex-col gap-6 lg:w-96">
           <Card 
-            className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-primary/40 hover:scale-105 hover:-translate-y-2 animate-fade-in-up"
+            className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:border-primary/40 hover:scale-105 hover:-translate-y-2 animate-fade-in-up"
             style={{ animationDelay: '0.2s' }}
           >
             {/* Animated Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-blue-500/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/6 to-blue-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out rounded-3xl" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/8 rounded-full blur-3xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-[3000ms] ease-out" />
             
             <CardContent className="relative flex flex-col gap-6 p-0">
               <div className="flex items-center gap-4">
-                <div className="bg-gradient-to-br from-blue-500/20 to-blue-500/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-blue-500/30 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <div className="bg-gradient-to-br from-blue-500/18 to-blue-500/6 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-blue-500/25 shadow-lg  group-hover:rotate-6 transition-all duration-[2500ms] ease-out">
                   <Mail className="text-blue-500 h-8 w-8" />
                 </div>
                 <div>
@@ -191,16 +191,16 @@ function ContactFormContent({
           </Card>
 
           <Card 
-            className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-primary/40 hover:scale-105 hover:-translate-y-2 animate-fade-in-up"
+            className="group relative bg-gradient-to-br from-background to-secondary/50 rounded-3xl border-2 border-border/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-[2500ms] ease-out hover:border-primary/40 hover:scale-105 hover:-translate-y-2 animate-fade-in-up"
             style={{ animationDelay: '0.4s' }}
           >
             {/* Animated Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-emerald-500/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
-            <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl -ml-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/6 to-emerald-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out rounded-3xl" />
+            <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-500/8 rounded-full blur-3xl -ml-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-[3000ms] ease-out" />
             
             <CardContent className="relative flex flex-col gap-6 p-0">
               <div className="flex items-center gap-4 mb-4">
-                <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-emerald-500/30 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <div className="bg-gradient-to-br from-emerald-500/18 to-emerald-500/6 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-emerald-500/25 shadow-lg  group-hover:rotate-6 transition-all duration-[2500ms] ease-out">
                   <Calendar className="text-emerald-500 h-8 w-8" />
                 </div>
                 <div>
@@ -213,7 +213,7 @@ function ContactFormContent({
               <Button 
                 asChild 
                 variant="outline" 
-                className="w-full h-14 text-base font-semibold group-hover:border-emerald-500 group-hover:text-emerald-500 group-hover:bg-emerald-500/5 transition-all duration-300"
+                className="w-full h-14 text-base font-semibold group-hover:border-emerald-500 group-hover:text-emerald-500 group-hover:bg-emerald-500/6 transition-all duration-[2500ms] ease-out"
               >
                 <Link href="#">
                   View Calendar
@@ -243,14 +243,14 @@ function ContactPageContent() {
       </div>
 
       {/* Enhanced Hero Section with Animations */}
-      <section className="relative bg-gradient-to-br from-green-950 via-emerald-900 to-teal-900 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
+      <section className="relative bg-gradient-to-br from-green-900 via-emerald-800 to-teal-800 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
           backgroundSize: '48px 48px'
         }} />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-green-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-green-500/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-500/8 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-green-500/10 via-transparent to-teal-500/10 rounded-full blur-3xl" />
         
         {/* Animated Lines */}
@@ -289,11 +289,11 @@ function ContactPageContent() {
                   <span className="text-sm font-semibold text-white">Expert Consultation</span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                  <Sparkles className="h-4 w-4 text-emerald-300" />
+                  <Sparkles className="h-4 w-4 text-green-300" />
                   <span className="text-sm font-semibold text-white">Custom Demo</span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                  <Sparkles className="h-4 w-4 text-teal-300" />
+                  <Sparkles className="h-4 w-4 text-green-300" />
                   <span className="text-sm font-semibold text-white">Fast Onboarding</span>
                 </div>
               </div>
@@ -302,7 +302,7 @@ function ContactPageContent() {
             <div className="flex-1 w-full animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/30 group">
                 {/* Decorative Border Glow */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400/20 via-emerald-400/20 to-teal-400/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400/18 via-emerald-400/18 to-teal-400/18 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out -z-10" />
                 
                 <AspectRatio ratio={16 / 10}>
                   <Image
@@ -310,10 +310,10 @@ function ContactPageContent() {
                     alt="Contact our team for Flexibench consultation and demo"
                     fill
                     priority
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="object-cover  transition-transform duration-[3000ms] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-green-950/90 via-green-950/40 to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 via-transparent to-teal-500/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-green-950/85 via-green-950/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-green-500/12 via-transparent to-teal-500/12" />
                 </AspectRatio>
               </div>
             </div>

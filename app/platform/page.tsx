@@ -8,6 +8,7 @@ import { platformModules } from "@/lib/flexibench-content";
 import { Network, Sparkles, Shield, Plug } from "lucide-react";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { blurPlaceholders } from "@/lib/image-utils";
 
 const iconMap: Record<string, typeof Network> = {
   Network,
@@ -26,7 +27,7 @@ export default function PlatformPage() {
       </div>
 
       {/* Enhanced Hero Section with Image */}
-      <section className="relative bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 section-padding-y border-b overflow-hidden" style={{ paddingTop: '80px' }}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
@@ -64,13 +65,15 @@ export default function PlatformPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group">
                 <AspectRatio ratio={16 / 10}>
                   <Image
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=900&fit=crop&q=80"
+                    src="/use-cases/finance.png"
                     alt="Enterprise annotation platform dashboard showing workflow orchestration, quality metrics, and data pipelines"
                     fill
                     priority
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    placeholder="blur"
+                    blurDataURL={blurPlaceholders.blue}
+                    className="object-cover  transition-transform duration-[3000ms] ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-blue-900/30 to-transparent" />
                 </AspectRatio>
               </div>
             </div>
@@ -138,28 +141,28 @@ export default function PlatformPage() {
                 title: "Enforces Structural Consistency",
                 description: "Through advanced ontology management",
                 image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
-                color: "from-blue-500/10 to-blue-500/5",
+                color: "from-blue-500/15 to-blue-500/8",
               },
               {
                 icon: Sparkles,
                 title: "Improves Speed",
                 description: "Reduces human drudgery with AI-assisted labeling",
                 image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80",
-                color: "from-purple-500/10 to-purple-500/5",
+                color: "from-purple-500/15 to-purple-500/8",
               },
               {
                 icon: Shield,
                 title: "Embeds Quality Engineering",
                 description: "Into every annotation task",
                 image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&q=80",
-                color: "from-green-500/10 to-green-500/5",
+                color: "from-green-500/15 to-green-500/8",
               },
               {
                 icon: Plug,
                 title: "Integrates Tightly",
                 description: "With engineering and model training workflows via APIs",
                 image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop&q=80",
-                color: "from-orange-500/10 to-orange-500/5",
+                color: "from-orange-500/15 to-orange-500/8",
               },
             ].map((value, index) => {
               const IconComponent = value.icon;
@@ -175,7 +178,7 @@ export default function PlatformPage() {
                   {/* Left Side - Content (Alternates) */}
                   <div className="flex-1 flex flex-col gap-6">
                     <div className="flex items-center gap-4">
-                      <div className={`bg-gradient-to-br ${value.color} flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/20 shadow-xl group-hover:scale-110 group-hover:border-primary/40 transition-all duration-300`}>
+                      <div className={`bg-gradient-to-br ${value.color} flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 border-primary/20 shadow-xl  group-hover:border-primary/40 transition-all duration-[2500ms] ease-out`}>
                         <IconComponent className="text-primary h-10 w-10" />
                       </div>
                       <div className="flex-1">
@@ -201,15 +204,15 @@ export default function PlatformPage() {
                   
                   {/* Right Side - Image (Alternates) */}
                   <div className="flex-1 max-w-lg">
-                    <div className="relative rounded-2xl overflow-hidden border-2 border-border/50 shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]">
+                    <div className="relative rounded-2xl overflow-hidden border-2 border-border/50 shadow-xl group-hover:shadow-2xl transition-all duration-[2500ms] ease-out group-">
                       <div className="aspect-[4/3] relative">
                         <Image
                           src={value.image}
                           alt={value.title}
                           fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          className="object-cover  transition-transform duration-[3000ms] ease-out"
                         />
-                        <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                        <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-100 transition-opacity duration-[2500ms] ease-out`} />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                       </div>
                     </div>

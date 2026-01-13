@@ -24,7 +24,7 @@ export function Footer1() {
         <div className="flex w-full flex-col items-center gap-12 text-center">
           {/* Logo Section */}
           <Link href="/" aria-label="Go to homepage" className="group">
-            <div className="transform group-hover:scale-105 transition-transform duration-300">
+            <div className="transform group-hover:scale-105 transition-transform duration-[2500ms] ease-out">
               <Logo className="[&_span]:text-white" />
             </div>
           </Link>

@@ -542,47 +542,52 @@
   background-size: 200% auto;
 }
 
-/* FORCE ultra-smooth, ULTRA SLOW transitions - but allow animations to work */
-* {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter !important;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
-  transition-duration: 3000ms !important;
+/* ULTRA-SMOOTH, SLOW TRANSITIONS - No Popping, No Lag, Just Smooth */
+/* Only affect hover interactions, NOT keyframe animations */
+
+/* Base smooth transition for all interactive elements */
+*:not(svg):not(svg *):not([class*="animate-"]) {
+  transition-property: color, background-color, border-color, opacity, box-shadow !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 800ms !important;
 }
 
-/* Force ULTRA slow hover transitions for interactive elements - but allow base animations */
-button, a, [role="button"] {
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
-  transition-duration: 4000ms !important;
+/* COMPLETELY REMOVE all transforms on hover - NO scaling, translating, or rotating */
+.group:hover [class*="group-hover:scale"],
+.group:hover [class*="group-hover:translate"],
+.group:hover [class*="group-hover:rotate"],
+[class*="hover:scale"]:hover,
+[class*="hover:translate"]:hover,
+[class*="hover:rotate"]:hover {
+  transform: none !important;
 }
 
-/* Slow down transforms but DON'T disable them - allow animations to work */
-[class*="hover:scale"], [class*="group-hover:scale"],
-[class*="hover:translate"], [class*="group-hover:translate"],
-[class*="hover:rotate"], [class*="group-hover:rotate"] {
-  transition: transform 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
-              opacity 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
-              box-shadow 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
-              border-color 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
-              background-color 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important,
-              color 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
+/* Cards and interactive groups get extra smooth transitions */
+.group:not([class*="animate-"]),
+.card:not([class*="animate-"]),
+button:not([class*="animate-"]),
+a:not([class*="animate-"]) {
+  transition-property: color, background-color, border-color, opacity, box-shadow !important;
+  transition-duration: 1000ms !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Force ULTRA slow transitions for transition utility classes */
-[class*="transition"]:not([class*="animate"]) {
-  transition-duration: 4000ms !important;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
+/* Override ANY duration classes to be slow */
+[class*="duration-"]:not([class*="animate-"]) {
+  transition-duration: 1000ms !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Override duration classes but not animations */
-[class*="duration"]:not([class*="animate"]) {
-  transition-duration: 4000ms !important;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
-}
-
-/* Allow SVG animations and keyframe animations to work normally */
-svg, svg *, [class*="animate"], @keyframes {
-  transition: none;
-  animation-duration: initial !important;
+/* Preserve keyframe animations - don't touch these */
+[class*="animate-pulse"],
+[class*="animate-float"],
+[class*="animate-wave"],
+[class*="animate-shimmer"],
+[class*="animate-slide"],
+[class*="animate-fade"],
+svg,
+svg * {
+  transition: none !important;
 }
 
 /* Accessibility: Focus states for keyboard navigation */
@@ -621,57 +626,21 @@ textarea:focus-visible {
   z-index: 9999;
 }
 
-/* FORCE ultra-smooth hover states - override everything */
+/* Hover utility classes - NO transforms, only smooth color/shadow changes */
 .hover-lift {
-  transition: transform 3000ms cubic-bezier(0.16, 1, 0.3, 1) !important, 
-              box-shadow 3000ms cubic-bezier(0.16, 1, 0.3, 1) !important;
-  will-change: transform, box-shadow !important;
+  transition: box-shadow 1000ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: box-shadow !important;
 }
 
 .hover-lift:hover {
-  transform: translateY(-2px) !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 .hover-glow {
-  transition: box-shadow 3000ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: box-shadow 1000ms cubic-bezier(0.4, 0, 0.2, 1) !important;
   will-change: box-shadow !important;
 }
 
 .hover-glow:hover {
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.2) !important;
-}
-
-/* ULTRA-SLOW hover animations for cards only - but allow base animations */
-.group:hover:not(svg):not([class*="animate"]) {
-  transition-duration: 4000ms !important;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
-}
-
-/* Slow down card hover effects specifically */
-.group:hover > div:not([class*="animate"]),
-.group:hover > [class*="Card"]:not([class*="animate"]) {
-  transition-duration: 4000ms !important;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
-}
-
-/* Make scale effects on cards very subtle */
-.group:hover [class*="group-hover:scale"] {
-  transform: scale(1.005) !important;
-  transition: transform 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
-}
-
-/* Force opacity transitions to be ultra slow (but not on animations) */
-[class*="opacity"]:not([class*="animate"]) {
-  transition: opacity 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
-}
-
-/* Force shadow transitions to be ultra slow */
-[class*="shadow"]:not([class*="animate"]) {
-  transition: box-shadow 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
-}
-
-/* Force border transitions to be ultra slow */
-[class*="border"]:not([class*="animate"]) {
-  transition: border-color 4000ms cubic-bezier(0.19, 1, 0.22, 1) !important;
 }

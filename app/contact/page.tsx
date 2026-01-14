@@ -16,12 +16,14 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
+type FormType = "sales" | "demo";
+
 function ContactFormContent({
   formType,
   setFormType,
 }: {
-  formType: "sales" | "demo";
-  setFormType: (type: "sales" | "demo") => void;
+  formType: FormType;
+  setFormType: (type: FormType) => void;
 }) {
   return (
     <section className="relative bg-gradient-to-b from-background via-secondary/30 to-background section-padding-y border-b overflow-hidden">
@@ -231,7 +233,7 @@ function ContactFormContent({
 function ContactPageContent() {
   const searchParams = useSearchParams();
   const initialFormType = searchParams?.get("type") === "sales" ? "sales" : "demo";
-  const [formType, setFormType] = useState<"sales" | "demo">(initialFormType);
+  const [formType, setFormType] = useState<FormType>(initialFormType);
 
   return (
     <main id="main-content">

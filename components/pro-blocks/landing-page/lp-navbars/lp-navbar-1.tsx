@@ -87,11 +87,11 @@ export function LpNavbar1() {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <nav className="bg-background sticky top-0 isolate z-50 border-b py-3.5 md:py-4">
+    <nav className="bg-background sticky top-0 isolate z-50 border-b py-2 md:py-2.5">
       <div className="relative container m-auto flex flex-col justify-between gap-4 px-6 md:flex-row md:items-center md:gap-6">
         <div className="flex items-center justify-between">
           <Link href="/">
-            <Logo width={240} height={80} />
+            <Logo width={300} height={100} />
           </Link>
           <Button
             variant="ghost"

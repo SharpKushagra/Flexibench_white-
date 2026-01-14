@@ -6,15 +6,15 @@ interface LogoProps {
   className?: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({ width = 220, height = 70, className }) => {
+export const Logo: React.FC<LogoProps> = ({ width = 240, height = 80, className }) => {
   return (
-    <div className={`flex items-center h-full ${className || ""}`}>
+    <div className={`flex items-center ${className || ""}`}>
       <Image
         src="/flexibench-logo.svg"
         alt="FlexiBench Logo"
         width={width}
         height={height}
-        className="object-contain h-full w-auto"
+        className="h-16 w-auto object-contain"
         priority
       />
     </div>

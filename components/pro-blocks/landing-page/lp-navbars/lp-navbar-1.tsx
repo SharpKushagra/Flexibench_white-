@@ -91,7 +91,7 @@ export function LpNavbar1() {
       <div className="relative container m-auto flex flex-col justify-between gap-4 px-6 md:flex-row md:items-center md:gap-6">
         <div className="flex items-center justify-between">
           <Link href="/">
-            <Logo />
+            <Logo width={140} height={35} />
           </Link>
           <Button
             variant="ghost"

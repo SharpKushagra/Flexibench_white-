@@ -25,7 +25,7 @@ export function Footer1() {
           {/* Logo Section */}
           <Link href="/" aria-label="Go to homepage" className="group">
             <div className="transform group-hover:scale-105 transition-transform duration-[2500ms] ease-out">
-              <Logo className="[&_span]:text-white" />
+              <Logo width={160} height={40} className="[&_span]:text-white" />
             </div>
           </Link>
 

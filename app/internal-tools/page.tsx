@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { InternalToolsSection } from "@/components/pro-blocks/landing-page/internal-tools-section";
 import { Card, CardContent } from "@/components/ui/card";
 import { internalTools } from "@/lib/flexibench-content";
+import { blurPlaceholders } from "@/lib/image-utils";
 import { Workflow, Mic, Users } from "lucide-react";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";

@@ -232,11 +232,11 @@ function ContactFormContent({
 
 function ContactPageContent() {
   const searchParams = useSearchParams();
-  const initialFormType = searchParams?.get("type") === "sales" ? "sales" : "demo";
-  const [formType, setFormType] = useState<FormType>(initialFormType);
+  const initialFormType: FormType = searchParams?.get("type") === "sales" ? "sales" : "demo";
+  const [formType, setFormType] = useState(initialFormType);
 
   return (
-    <main id="main-content">
+    <>
       <LpNavbar1 />
       
       {/* Breadcrumbs */}

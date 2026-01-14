@@ -90,7 +90,7 @@ export function LpNavbar1() {
     <nav className="bg-background sticky top-0 isolate z-50 border-b">
       <div className="relative container m-auto px-6">
         {/* Logo Section - Separate and larger */}
-        <div className="flex items-center justify-between py-3 md:py-4">
+        <div className="flex items-center justify-between py-1.5 md:py-2">
           <Link href="/" className="relative z-10">
             <Logo width={350} height={120} />
           </Link>
